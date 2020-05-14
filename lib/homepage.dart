@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -152,21 +152,34 @@ Widget Top=Container(
     ],
   ),
 );
-Column circularicon(String icon_name,String label)
-{
-  return Column(
-  children: <Widget>[
-    Center(child: (Tab(icon: new Image.asset(icon_name)))),
-    Center(child:new Text(
-      label,
-      style: TextStyle(
-        fontFamily: "Exo",fontWeight: FontWeight.w700,
-        fontSize: 30,
-        color:Color(0xffffffff),
-      ),
+Widget circularicon(icon_name,url,label){
+  Container(
+    child: Column(
+      children: <Widget>[
+        Container(
+          width:40,
+          height: 40,
+          decoration:BoxDecoration(
+            color:Colors.blue,
+            shape: BoxShape.circle
+          ),
+          child: Tab(
+            icon: Container(
+              child: Image(
+                image: AssetImage(
+                  'url',
+                ),
+                fit: BoxFit.cover,
+              ),
+              height: 100,
+              width: 100,
+            ),
+          ),
+        ),
+
+
+      ],
     ),
-    ),
-  ],
   );
 }
 
@@ -189,29 +202,10 @@ Widget links=Container(
         child: simplebutton('IMPORTANT lINKS',double.infinity,40)
       ),
       Container(
-        width: 80.0,
-        height: 80.0,
-        margin: EdgeInsets.only(right:30),
-        decoration: new BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue,
-          image: new DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage('assets/icons/chocshake.png'),
-          ),
-        ),
-      ),
-  Container(
-    child: ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text('${items[index]}'),
-        );
-      },
-    ),
-  ),
+        child: Row(
 
+        ),
+      )
     ],
   ),
 );
