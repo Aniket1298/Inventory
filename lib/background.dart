@@ -22,3 +22,19 @@ class BluePainter extends CustomPainter {
     return oldDelegate != this;
   }
 }
+
+class CurvePainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint();
+    paint.color = Colors.white;
+    // Create a rectangle with size and width same as the canvas
+    var rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    // draw the rectangle using the paint
+    canvas.drawRect(rect, paint);
+  }
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return oldDelegate != this;
+  }
+}

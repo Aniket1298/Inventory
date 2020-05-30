@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/customer_payment_history.dart';
+import 'package:hello/signup.dart';
 // Uncomment lines 7 and 10 to view the visual layout at runtime.
 // import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 import 'detail.dart';
@@ -8,10 +9,11 @@ import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
 import 'folloup.dart';
+import 'SPLASHSCREEN.dart';
 import 'customer_payment_history.dart';
 void main() {
   // debugPaintSizeEnabled = true;
-  runApp(customer_payment_history());
+  runApp(SPLASHSCREEN());
 }
 class MyApp extends StatelessWidget {
   @override
