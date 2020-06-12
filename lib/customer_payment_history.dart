@@ -38,6 +38,7 @@ class customer_payment_history extends StatelessWidget {
                     return product_payment();
                   }
               ),
+              total(35000.00,29200.00,5800,55,3),
             ],
           ),
         ),
@@ -381,6 +382,159 @@ Widget product_payment(){
         //Tab(icon: new Image.asset("assets/icons/rupee.png"), text: ""),
 
       ],
+    ),
+  );
+}
+
+Widget total(total_payment,total_due,total_dues_left,products,transactions){
+  return Container(
+    margin:EdgeInsets.fromLTRB(10, 10, 10, 10),
+    padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+      begin: Alignment(1.42, -3.09),
+      end: Alignment(-1.31, 3.77),
+      colors: [const Color(0xff6a79dd), const Color(0xff5866c3)],
+      stops: [0.0, 1.0],
+      ),
+    ),
+    child: Column(
+      children:<Widget>[
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Total  Payment Amount :',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '35000.00',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+          ],
+        ),
+        ),
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Total  Payment Amount :',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '35000.00',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+          ],
+        ),
+        ),
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Total  Payment Amount :',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '35000.00',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+          ],
+        ),
+        ),Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Total  Payment Amount :',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '35000.00',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+          ],
+        ),
+        ),
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'Total  Payment Amount :',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+              Text(
+                '35000.00',
+                style: TextStyle(
+                  fontFamily: 'Arial Narrow',
+                  fontSize: 12,
+                  color: const Color(0xffffffff),
+                  letterSpacing: 0.25000000762939456,
+                ),
+                textAlign: TextAlign.right,
+              ),
+          ],
+        ),
+        ),
+      ]
     ),
   );
 }

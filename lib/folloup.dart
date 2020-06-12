@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// Uncomment lines 7 and 10 to view the visual layout at runtime.
-// import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
-
 import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
@@ -15,7 +12,6 @@ final follows=[{'name':'Mr.Ashish  Kumar'.toUpperCase(),'units':17,'product':'Ch
 class Followup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color color = Colors.blue.shade800;
     return MaterialApp(
       title: '',
       home: Scaffold(
@@ -138,7 +134,6 @@ class Followup extends StatelessWidget {
                         },),
                   ),
                 ],
-
               ),
             ),
         ),

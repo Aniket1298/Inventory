@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'background.dart';
 import 'navbar.dart';
+import 'package:http/http.dart' as http;
 double total_width=0;
 double total_height=0;
 class signup extends StatefulWidget {
@@ -11,8 +11,30 @@ class signup extends StatefulWidget {
   _signupState createState() => _signupState();
 }
 class _signupState extends State<signup> {
+     final _name= TextEditingController();
+      final _age= TextEditingController();
+      final _post= TextEditingController();
+       final _score= TextEditingController();
+      final _email= TextEditingController();
+      final _mobile= TextEditingController();
+      final _password= TextEditingController();
+      final _confirmpassword= TextEditingController();
+      void dispose() {
+    // Clean up the controller when the widget is disposed.
+        _name.dispose();
+        _age.dispose();
+        _post.dispose();
+        _score.dispose();
+        _email.dispose();
+        _mobile.dispose();
+        _password.dispose();
+        _confirmpassword();
+        super.dispose();
+      }
   @override
-  TextEditingController _emailController, _passwordController;
+
+
+
   Widget build(BuildContext context) {
     return MaterialApp(
         home:Scaffold(
@@ -23,7 +45,7 @@ class _signupState extends State<signup> {
               scrollDirection: Axis.vertical,
               children: <Widget>[
                 SizedBox(height: 100),
-                register(500.0),
+                register(500.0,_name,_age,_post,_score,_email,_mobile,_password,_confirmpassword),
               ],
             ),
           ),
@@ -32,7 +54,7 @@ class _signupState extends State<signup> {
 
   }
 }
-Widget  register(screen_width) {
+Widget  register(screen_width,_name,_age,_post,_score,_email,_mobile,_password,_confirmpassword) {
   return(Container(
     padding: EdgeInsets.only(left: 10),
     margin: EdgeInsets.all(10),
@@ -63,6 +85,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _name,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -95,6 +118,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _age,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -127,6 +151,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 20,
                 child: TextField(
+                  controller: _score,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -152,6 +177,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _post,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -178,6 +204,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _email,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -210,6 +237,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _mobile,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -242,6 +270,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _password,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),
@@ -274,6 +303,7 @@ Widget  register(screen_width) {
                 width: 150,
                 height: 25,
                 child: TextField(
+                  controller: _confirmpassword,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                   ),

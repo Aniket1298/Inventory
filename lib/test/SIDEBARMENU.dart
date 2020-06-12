@@ -7,7 +7,8 @@ class SIDEBARMENU extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      home:Scaffold(
       backgroundColor: const Color(0xfff2f5f8),
       body: Stack(
         children: <Widget>[
@@ -46,24 +47,7 @@ class SIDEBARMENU extends StatelessWidget {
                     ),
                   ),
                 ),
-                Transform.translate(
-                  offset: Offset(18.0, 29.0),
-                  child:
-                      // Adobe XD layer: 'Group' (group)
-                      Stack(
-                    children: <Widget>[
-                      Transform.translate(
-                        offset: Offset(0.5, 1.5),
-                        child:
-                            // Adobe XD layer: 'Line' (shape)
-                            SvgPicture.string(
-                          _svg_wnf1fw,
-                          allowDrawingOutsideViewBox: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                
               ],
             ),
           ),
@@ -89,15 +73,7 @@ class SIDEBARMENU extends StatelessWidget {
                     ],
                   ),
                 ),
-                Transform.translate(
-                  offset: Offset(0.0, 174.5),
-                  child:
-                      // Adobe XD layer: 'Line 2 Copy' (shape)
-                      SvgPicture.string(
-                    _svg_ufa9yt,
-                    allowDrawingOutsideViewBox: true,
-                  ),
-                ),
+                
                 Transform.translate(
                   offset: Offset(137.0, 61.0),
                   child:
@@ -229,7 +205,7 @@ class SIDEBARMENU extends StatelessWidget {
                 ),
                 children: [
                   TextSpan(
-                    text: 'My Accoun',
+                    text: 'My Account',
                   ),
                   TextSpan(
                     text: 't',
@@ -575,16 +551,7 @@ class SIDEBARMENU extends StatelessWidget {
               ),
             ),
           ),
-          Transform.translate(
-            offset: Offset(286.68, 33.11),
-            child:
-                // Adobe XD layer: 'Combined Shape' (shape)
-                SvgPicture.string(
-              _svg_pfrx28,
-              allowDrawingOutsideViewBox: true,
-            ),
-          ),
-          Transform.translate(
+                    Transform.translate(
             offset: Offset(53.0, 626.0),
             child:
                 // Adobe XD layer: 'INVENTORY GURU™ Copy' (text)
@@ -688,13 +655,8 @@ class SIDEBARMENU extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),
+  );
   }
 }
 
-const String _svg_wnf1fw =
-    '<svg viewBox="0.5 1.5 17.1 14.0" ><path  d="M 0.5 1.5 L 17.61724281311035 1.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><path transform="translate(0.0, 7.0)" d="M 0.5 1.5 L 17.61724281311035 1.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><path transform="translate(0.0, 14.0)" d="M 0.5 1.5 L 17.61724281311035 1.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>';
-const String _svg_ufa9yt =
-    '<svg viewBox="0.0 174.5 343.0 362.5" ><path transform="translate(0.0, 173.0)" d="M 0 1.499004364013672 L 343 1.499004364013672" fill="#df8888" stroke="#e6ebf0" stroke-width="4" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(4.0, 358.0)" d="M 0 0.5009956359863281 L 339 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(4.0, 429.0)" d="M 0 0.5009956359863281 L 339 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(6.0, 467.0)" d="M 0 0.5009956359863281 L 337 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(6.0, 501.5)" d="M 0 0.5009956359863281 L 337 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(6.0, 536.5)" d="M 0 0.5009956359863281 L 337 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(9.0, 395.0)" d="M 0 0.5009956359863281 L 334 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(2.0, 322.0)" d="M 0 0.5009956359863281 L 339.5 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(3.0, 287.0)" d="M 0 0.0004978309152647853 L 271.8028869628906 0.3994120359420776 L 340 0.4995021820068359" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /><path transform="translate(0.0, 249.0)" d="M 0 0.5009956359863281 L 343 0.5009956359863281" fill="none" stroke="#e6ebf0" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /></svg>';
-const String _svg_pfrx28 =
-    '<svg viewBox="286.7 33.1 11.1 11.1" ><path transform="matrix(0.642788, 0.766044, -0.766044, 0.642788, 292.81, 33.11)" d="M 7.747200012207031 0.5004000067710876 L 0 0.5004000067710876 L 7.747200012207031 0.5004000067710876 L 7.747200012207031 0 L 7.747200012207031 0.5004000067710876 L 7.786800384521484 0.5004000067710876 L 7.747200012207031 0.5004000067710876 L 7.747200012207031 8.000100135803223 L 7.747200012207031 0.5004000067710876 Z" fill="none" stroke="#979797" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /></svg>';

@@ -12,6 +12,19 @@ class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
+      child: Column(
+        children: <Widget>[
+          Text('ADD NEW CUSTOMER'),
+          Container(
+            child: Row(children: <Widget>[
+              Text('data')
+            ],),
+          ),
+        ],
+      ),
+
 
     );
   }

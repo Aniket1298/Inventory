@@ -2,13 +2,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-// Uncomment lines 7 and 10 to view the visual layout at runtime.
-// import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 import 'detail.dart';
 import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
 import 'package:flutter/cupertino.dart';
+import 'sidebar.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -16,6 +15,7 @@ class Homepage extends StatelessWidget {
     return MaterialApp(
       title: '',
       home: Scaffold(
+        drawer: Sidebar(),
         body: CustomPaint(
           painter: BluePainter(),
           child: Container(

@@ -4940,3 +4940,68 @@ const String _svg_9l2vv3 =
     '<svg viewBox="331.0 0.0 1.0 35.0" ><path transform="translate(330.0, 0.0)" d="M 1 0 L 1 35" fill="none" stroke="#ffffff" stroke-width="1" stroke-miterlimit="10" stroke-linecap="square" /></svg>';
 const String _svg_qab98r =
     '<svg viewBox="282.0 1589.0 8.0 7.0" ><path transform="translate(282.0, 1596.0)" d="M 4 0 L 8 -7 L 0 -7 L 4 0 Z" fill="#909efb" stroke="none" stroke-width="1" stroke-miterlimit="10" stroke-linecap="butt" /></svg>';
+  Container(
+                            padding: EdgeInsets.fromLTRB(5, 5, 10, 10),
+                            child:Row(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                  width: 20,
+                                  height: 20,
+                                  child: Image.asset('assets/icons/rate.png',),
+                                  ),
+                                Text(
+                                  'Enter Email Address',
+                                  style: TextStyle(
+                                    fontFamily: 'Arial Narrow',
+                                    fontSize: 20,
+                                    color: const Color(0xff42505c),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                 ),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                  height: 25,
+                                  child: TextField(
+                                    controller: _email,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                              ),
+                            ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(5, 5, 10, 10),
+                            child:Row(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                  width: 20,
+                                  height: 20,
+                                  child: Image.asset('assets/icons/rate.png',),
+                                  ),
+                                Text(
+                                  'Enter Password',
+                                  style: TextStyle(
+                                    fontFamily: 'Arial Narrow',
+                                    fontSize: 20,
+                                    color: const Color(0xff42505c),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                 ),
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                  height: 25,
+                                  child: TextField(
+                                    controller: _password,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                              ),
+                            ),
+                        

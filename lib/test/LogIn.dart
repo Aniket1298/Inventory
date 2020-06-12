@@ -1,13 +1,247 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hello/background.dart';
+import 'package:hello/screen.dart';
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _password = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  @override
+  final _email= TextEditingController();
+
+  Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+
+    return MaterialApp(
+      home:Scaffold(
+        body: CustomPaint(
+          painter: BluePainter(),
+          child: Container(
+            child:ListView(
+              children: <Widget>[
+                SafeArea(
+                  child:Center(
+                    child:Container(
+                      
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            color: Colors.white,
+                            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                SizedBox(height:1),
+                                Text(
+                                  'INVENTORY GURU',
+                                  style: TextStyle(
+                                  fontFamily: 'Exo',
+                                  fontSize: 34,
+                                  color: const Color(0xffffffff),
+                                  letterSpacing: 0.08774193286895753,
+                                  fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  ),
+                                SizedBox(height:1),
+                  
+                              ],
+                            ),
+                            ),
+                          Center(child: Text(
+                                  'Managing Stocks Made Easy',
+                                  style: TextStyle(
+                                    fontFamily: 'Arial Narrow',
+                                    fontSize: 18,
+                                    color: const Color(0xffffffff),
+                                    letterSpacing: 0.25000000762939456,
+                                  ),
+                                  textAlign: TextAlign.right,
+                                ),),
+                          Center(child: Text(
+                                'LOGIN',
+                                style: TextStyle(
+                                  fontFamily: 'Arial Narrow',
+                                  fontSize: 32,
+                                  color: const Color(0xffffffff),
+                                  letterSpacing: 0.44444448852539065,
+                                ),
+                                textAlign: TextAlign.right,
+                              ),
+                            ),
+                          Center(
+                            child: Text(
+                              'Only For Registered Users',
+                              style:TextStyle(
+                                fontFamily: 'Arial Narrow',
+                                fontSize: 23,
+                                color: const Color(0xffffffff),
+                                letterSpacing: -0.46,
+                                ),
+                              ),
+                            ),
+                          SizedBox(height:20),  
+                          Container(
+                            color: Colors.white,
+                            padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                            child:Row(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                  width: 25,
+                                  height: 25,
+                                  child: Image.asset('assets/icons/rate.png',),
+                                  ),
+                                Text(
+                                  'Enter Email Address',
+                                  style: TextStyle(
+                                    fontFamily: 'Arial Narrow',
+                                    fontSize: 20,
+                                    color: const Color(0xff42505c),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                 ),
+                                Container(
+                                  height: 25,
+                                  width: 70,
+                                  child: TextField(
+                                    controller: _email,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            color: Colors.white,
+                            padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                            child:Row(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                  width: 25,
+                                  height: 25,
+                                  child: Image.asset('assets/icons/password_blue.png',),
+                                  ),
+                                Text(
+                                  'Enter Password',
+                                  style: TextStyle(
+                                    fontFamily: 'Arial Narrow',
+                                    fontSize: 20,
+                                    color: const Color(0xff42505c),
+                                  ),
+                                  textAlign: TextAlign.left,
+                                 ),
+                                Container(
+                                  height: 25,
+                                  width: 120,
+                                  child: TextField(
+                                    controller: _password,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        
+                          
+                          Container(
+                                padding: EdgeInsets.fromLTRB(5, 5, 10, 5),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    SizedBox(height: 1,),
+                                    InkWell(
+                                          child: Text(
+                                            'Forgot Password ?',
+                                            style: TextStyle(
+                                                fontFamily: 'Arial Narrow',
+                                                fontSize: 10,
+                                                color: const Color(0xff42505c),
+                                              ),
+                                              textAlign: TextAlign.right,
+                                              ),
+                                          onTap: () {print("value of your text");},
+                                      ),
+                                      SizedBox(height: 1,),
+                                    ],
+                                  ),
+                               ),
+
+                          Container(child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                            SizedBox(height:1),
+                            RaisedButton(onPressed: null,
+                            textColor: Colors.white,
+                            child:Container(
+                                child: Text('Log In', style: TextStyle(fontSize: 20)) ,
+                                width: 121.0,
+                                height: 34.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(2.0),
+                                  gradient: LinearGradient(
+                                    begin: Alignment(1.11, -1.3),
+                                    end: Alignment(-1.31, 3.77),
+                                    colors: [const Color(0xffd4811f), const Color(0xffcaa878)],
+                                    stops: [0.0, 1.0],
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color(0x80000000),
+                                      offset: Offset(0, 2),
+                                      blurRadius: 1,
+                                    ),
+                                  ],
+                                ),
+                              ), 
+                            ),
+                            SizedBox(height:1),
+
+                          ],),),
+                        ],
+                      ),
+                    ),
+                    ),
+                  ),
+              ],)
+          ), 
+        ),
+      ),
+      
+    );
+  }
+}
+
 
 class LogIn extends StatelessWidget {
   LogIn({
     Key key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return(
+      MaterialApp(
+        home: Scaffold(
       backgroundColor: const Color(0xfff2f5f8),
       body: Stack(
         children: <Widget>[
@@ -80,10 +314,6 @@ class LogIn extends StatelessWidget {
                 Stack(
               children: <Widget>[
                 // Adobe XD layer: 'Rectangle' (shape)
-                SvgPicture.string(
-                  _svg_e2hked,
-                  allowDrawingOutsideViewBox: true,
-                ),
               ],
             ),
           ),
@@ -113,12 +343,8 @@ class LogIn extends StatelessWidget {
               children: <Widget>[
                 Transform.translate(
                   offset: Offset(0.0, -301.32),
-                  child:
+                  child:SizedBox(height:1),
                       // Adobe XD layer: 'Rectangle' (shape)
-                      SvgPicture.string(
-                    _svg_l6l84o,
-                    allowDrawingOutsideViewBox: true,
-                  ),
                 ),
               ],
             ),
@@ -353,11 +579,8 @@ class LogIn extends StatelessWidget {
           ),
         ],
       ),
+    ),
+  )
     );
   }
 }
-
-const String _svg_e2hked =
-    '<svg viewBox="0.0 0.0 392.0 301.3" ><defs><linearGradient id="gradient" x1="1.211204" y1="-1.049067" x2="-0.155621" y2="2.39249"><stop offset="0.0" stop-color="#ff7c89e4"  /><stop offset="1.0" stop-color="#ff5866c3"  /></linearGradient></defs><path  d="M 0 0 L 389.92041015625 0 L 392 190.9596710205078 C 392 190.9596710205078 289.34423828125 268.3983764648438 196 298.9614562988281 C 102.6557693481445 329.5245361328125 0 52.66938400268555 0 52.66938400268555 C 0 52.66938400268555 0 269.8493347167969 0 169.7124633789063 C 0 69.57560729980469 0 0 0 0 Z" fill="url(#gradient)" fill-opacity="0.92" stroke="none" stroke-width="1.600000023841858" stroke-opacity="0.92" stroke-miterlimit="10" stroke-linecap="butt" /></svg>';
-const String _svg_l6l84o =
-    '<svg viewBox="0.0 -301.3 392.0 301.3" ><defs><linearGradient id="gradient" x1="1.211204" y1="2.049067" x2="-0.155621" y2="-1.39249"><stop offset="0.0" stop-color="#ff7c89e4"  /><stop offset="1.0" stop-color="#ff5866c3"  /></linearGradient></defs><path  d="M 0 0 L 389.92041015625 0 L 392 -190.9596710205078 C 392 -190.9596710205078 289.34423828125 -268.3983764648438 196 -298.9614562988281 C 102.6557693481445 -329.5245361328125 0 -52.66938400268555 0 -52.66938400268555 C 0 -52.66938400268555 0 -269.8493347167969 0 -169.7124633789063 C 0 -69.57560729980469 0 0 0 0 Z" fill="url(#gradient)" fill-opacity="0.92" stroke="none" stroke-width="1.600000023841858" stroke-opacity="0.92" stroke-miterlimit="10" stroke-linecap="butt" /></svg>';
