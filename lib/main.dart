@@ -15,59 +15,21 @@ import 'test/SIDEBARMENU.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //default value : width : 1080px , height:1920px , allowFontScaling:false
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
-  // debugPaintSizeEnabled = true;
-  runApp(Login());
-}
+void main() => runApp(MyApp());
+
 class MyApp extends StatelessWidget {
-  @override
+  @override 
   Widget build(BuildContext context) {
-    
     return MaterialApp(
-      title: '',
-      home: Scaffold(
-        body: CustomPaint(
-          painter: BluePainter(),
-          child: Container(
-            child: ListView(
-              children: <Widget>[
-                  name,
-                  Container(
-                    decoration: new BoxDecoration(
-                      color: Color(0xffffffff), //new Color.fromRGBO(255, 0, 0, 0.0),
-                      borderRadius: new BorderRadius.all(Radius.circular(10)),
-                    ),
-                    margin: EdgeInsets.fromLTRB(15, 60, 15, 5),
-                    padding: EdgeInsets.all(5),
-                    width: 300,
-                    child: Top,
-                  ),
-                  Container(
-                    decoration: new BoxDecoration(
-                      color: Color(0xffffffff), //new Color.fromRGBO(255, 0, 0, 0.0),
-                      borderRadius: new BorderRadius.all(Radius.circular(8)),
-                    ),
-                    margin: EdgeInsets.fromLTRB(15, 20, 15, 5),
-                    padding: EdgeInsets.all(0),
-                    width: 300,
-                    child: newcustomers,
-                  ),
-                Container(
-                  decoration: new BoxDecoration(
-                    color: Color(0xffffffff), //new Color.fromRGBO(255, 0, 0, 0.0),
-                    borderRadius: new BorderRadius.all(Radius.circular(8)),
-                  ),
-                  margin: EdgeInsets.fromLTRB(15, 20, 15, 10),
-                  padding: EdgeInsets.all(0),
-                  width: 300,
-                  child: latest_product,
-                ),
-                ],
-              ),
-          ),
-        ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: Login(),
     );
   }
 }
+

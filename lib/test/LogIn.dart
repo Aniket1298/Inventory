@@ -3,6 +3,27 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hello/background.dart';
 import 'package:hello/screen.dart';
+
+
+final cri=Container(
+            width: 100.0,
+            height: 100.0,
+            
+            decoration: new BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.green,
+            ),
+            child: Container(
+                alignment: Alignment.center,
+                child: Text('Hello'),
+                margin: EdgeInsets.all(10),
+                decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+              ),
+          );
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -24,100 +45,150 @@ class _LoginState extends State<Login> {
 
   Widget build(BuildContext context) {
 
-    double width = MediaQuery.of(context).size.width;
-
+        final screen=MediaQuery.of(context).size;
     return MaterialApp(
       home:Scaffold(
         body: CustomPaint(
-          painter: BluePainter(),
-          child: Container(
-            child:ListView(
+          painter: AuthPainter(),
+          child:Column(
               children: <Widget>[
-                SafeArea(
-                  child:Center(
-                    child:Container(
-                      
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            color: Colors.white,
-                            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Container(width: screen.width,height: screen.height*0.07,),//topblank
+                Container(child: Text(
+                    'INVENTORY GURU',
+                    style: TextStyle(
+                      fontFamily: 'Exo',
+                      fontSize: screen.height*0.045,
+                      color: const Color(0xffffffff),
+                      letterSpacing: 0.08774193286895753,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    textAlign: TextAlign.center,
+                    ),
+                  ),
+                //Tag
+                Container(child: Text(
+                      'Managing Stocks Made Easy',
+                      style: TextStyle(
+                        fontFamily: 'Arial Narrow',
+                        fontSize: screen.height*0.02,
+                        color: const Color(0xffffffff),
+                        letterSpacing: 0.25000000762939456,
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),//Tag2
+                SizedBox(height:screen.height*0.08),
+                Container(child: Text(
+                    'LOGIN',
+                    style: TextStyle(
+                      fontFamily: 'Arial Narrow',
+                      fontSize: screen.height*0.05,
+                      color: const Color(0xffffffff),
+                      letterSpacing: 0.44444448852539065,
+                      ),
+                    textAlign: TextAlign.right,
+                   ),
+                  ),//Login
+                SizedBox(height:screen.height*0.01),
+                Container(child: Text.rich(
+                  TextSpan(
+                        style: TextStyle(
+                          fontFamily: 'Arial Narrow',
+                          fontSize: screen.height*0.028,
+                          color: const Color(0xffffffff),
+                          letterSpacing: -0.46,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'Only For Registered User',
+                          ),
+                          TextSpan(
+                            text: 's',
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.right,
+                    ),
+                  ),//Disclaimer
+                SizedBox(height:screen.height*0.13),
+                Container(
+                  padding: EdgeInsets.zero,
+                  alignment: Alignment.topLeft,
+                  child:Row(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.only(left:5),
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                
+                          children:<Widget>[
+                            Container(child:Row(
                               children: <Widget>[
-                                SizedBox(height:1),
-                                Text(
-                                  'INVENTORY GURU',
-                                  style: TextStyle(
-                                  fontFamily: 'Exo',
-                                  fontSize: 34,
-                                  color: const Color(0xffffffff),
-                                  letterSpacing: 0.08774193286895753,
-                                  fontWeight: FontWeight.w700,
+                                Container(height: screen.height*0.022,
+                                width:screen.width*0.04,
+                                child: Image.asset(
+                                  'assets/icons/rate.png',
+                                  
                                   ),
-                                  textAlign: TextAlign.center,
-                                  ),
-                                SizedBox(height:1),
-                  
-                              ],
-                            ),
-                            ),
-                          Center(child: Text(
-                                  'Managing Stocks Made Easy',
-                                  style: TextStyle(
-                                    fontFamily: 'Arial Narrow',
-                                    fontSize: 18,
-                                    color: const Color(0xffffffff),
-                                    letterSpacing: 0.25000000762939456,
-                                  ),
-                                  textAlign: TextAlign.right,
-                                ),),
-                          Center(child: Text(
-                                'LOGIN',
-                                style: TextStyle(
-                                  fontFamily: 'Arial Narrow',
-                                  fontSize: 32,
-                                  color: const Color(0xffffffff),
-                                  letterSpacing: 0.44444448852539065,
                                 ),
-                                textAlign: TextAlign.right,
-                              ),
-                            ),
-                          Center(
-                            child: Text(
-                              'Only For Registered Users',
-                              style:TextStyle(
-                                fontFamily: 'Arial Narrow',
-                                fontSize: 23,
-                                color: const Color(0xffffffff),
-                                letterSpacing: -0.46,
-                                ),
-                              ),
-                            ),
-                          SizedBox(height:20),  
-                          Container(
-                            color: Colors.white,
-                            padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                            child:Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                                  width: 25,
-                                  height: 25,
-                                  child: Image.asset('assets/icons/rate.png',),
-                                  ),
                                 Text(
                                   'Enter Email Address',
                                   style: TextStyle(
                                     fontFamily: 'Arial Narrow',
-                                    fontSize: 20,
+                                    fontSize: screen.height*0.024,
                                     color: const Color(0xff42505c),
                                   ),
-                                  textAlign: TextAlign.left,
+                                 
                                  ),
+
+                                ],
+                               ),
+                             ),
+                            Container(
+                              alignment: Alignment.bottomLeft,
+                              child:Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
                                 Container(
+                                  child: Row(children: <Widget>[
+                                  Container(
+                                    height: screen.height*0.022,
+                                    width:screen.width*0.04,
+                                    child: Image.asset(
+                                      'assets/icons/password_blue.png',
+                                      
+                                      ),
+                                    ),
+
+                                    Text(
+                                      'Password                  ',
+                                      style: TextStyle(
+                                        fontFamily: 'Arial Narrow',
+                                        fontSize: screen.height*0.024,
+                                        color: const Color(0xff42505c),
+                                      ),
+                                    ),
+                                    
+                                    ],
+                                  ),
+                                ),
+                                
+                                SizedBox(height:1),
+                                ],
+                                ),
+                                ),
+                                
+                  
+                             
+                             
+                          ]
+                        )
+                      ),//fields
+                      Container(child: Column(
+                        children:<Widget>[
+                           Container(
                                   height: 25,
-                                  width: 70,
+                                  width: screen.width*0.40,
                                   child: TextField(
                                     controller: _email,
                                     decoration: InputDecoration(
@@ -125,111 +196,116 @@ class _LoginState extends State<Login> {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            color: Colors.white,
-                            padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                            child:Row(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
-                                  width: 25,
+                            Container(
                                   height: 25,
-                                  child: Image.asset('assets/icons/password_blue.png',),
-                                  ),
-                                Text(
-                                  'Enter Password',
-                                  style: TextStyle(
-                                    fontFamily: 'Arial Narrow',
-                                    fontSize: 20,
-                                    color: const Color(0xff42505c),
-                                  ),
-                                  textAlign: TextAlign.left,
-                                 ),
-                                Container(
-                                  height: 25,
-                                  width: 120,
+                                  width:screen.width*0.40,
                                   child: TextField(
                                     controller: _password,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        
-                          
-                          Container(
-                                padding: EdgeInsets.fromLTRB(5, 5, 10, 5),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    SizedBox(height: 1,),
-                                    InkWell(
-                                          child: Text(
-                                            'Forgot Password ?',
-                                            style: TextStyle(
-                                                fontFamily: 'Arial Narrow',
-                                                fontSize: 10,
-                                                color: const Color(0xff42505c),
-                                              ),
-                                              textAlign: TextAlign.right,
-                                              ),
-                                          onTap: () {print("value of your text");},
-                                      ),
-                                      SizedBox(height: 1,),
-                                    ],
-                                  ),
-                               ),
-
-                          Container(child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                            SizedBox(height:1),
-                            RaisedButton(onPressed: null,
-                            textColor: Colors.white,
-                            child:Container(
-                                child: Text('Log In', style: TextStyle(fontSize: 20)) ,
-                                width: 121.0,
-                                height: 34.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(2.0),
-                                  gradient: LinearGradient(
-                                    begin: Alignment(1.11, -1.3),
-                                    end: Alignment(-1.31, 3.77),
-                                    colors: [const Color(0xffd4811f), const Color(0xffcaa878)],
-                                    stops: [0.0, 1.0],
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color(0x80000000),
-                                      offset: Offset(0, 2),
-                                      blurRadius: 1,
-                                    ),
-                                  ],
-                                ),
-                              ), 
-                            ),
-                            SizedBox(height:1),
-
-                          ],),),
-                        ],
+                              ),
+                        ]
+                      ),),//inputs
+                    ],)
+                ),//email
+                Container(),//password
+                Container(),//Forgot
+                Container(),//Login
+                Container(),//Register
+                Container(),//Signup        
+                Container(
+                  padding:EdgeInsets.fromLTRB(5, 10, 10, 0),
+                  child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                      SizedBox(height: 1,),
+                      InkWell(
+                        child: Text('Forgot Password ?'),
+                        onTap: () {print("value of your text");},
                       ),
-                    ),
+                      
+                      ],
                     ),
                   ),
-              ],)
-          ), 
+                SizedBox(height:screen.height*0.02),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                    SizedBox(height:1),
+                    FlatButton(
+                        color: Color(0xffd4811f),
+                        textColor: Colors.white,
+                        disabledColor: Colors.grey,
+                        disabledTextColor: Colors.black,
+                        padding: EdgeInsets.all(4.0),
+                        splashColor: Colors.blueAccent,
+                        onPressed: () {
+                          /*...*/
+                        },
+                        child: Text(
+                          "Log In",
+                          style: TextStyle(fontSize: screen.height*0.028),
+                        ),
+                      ),
+                      SizedBox(height:1),
+
+                  ],
+                  ),
+
+                ),    
+                SizedBox(height:screen.height*0.1),
+                Container(
+                  padding:EdgeInsets.fromLTRB(5, 4, 5, 0),
+                  child:Text(
+                  'Don’t have an account , Please Register Below',
+                  style: TextStyle(
+                    fontFamily: 'Avenir Next',
+                    fontSize: screen.width*0.035,
+                    color: const Color(0xff79828b),
+                    letterSpacing: -0.0564705810546875,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.left,
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                padding:EdgeInsets.fromLTRB(5, 5, 0, 5),
+                  child: FlatButton(
+                      color: const Color(0xff636fbf),
+                      textColor: Colors.white,
+                      disabledColor: Colors.grey,
+                      disabledTextColor: Colors.black,
+                      padding: EdgeInsets.all(8.0),
+                      splashColor: const Color(0xff636fbf),
+                      onPressed: () {
+                        /*...*/
+                      },
+                      child: Text(
+                        "Sign Up",
+                      ),
+                    ),
+                  ),//
+                SizedBox(height:screen.height*0.1),
+                Container(
+                  padding:EdgeInsets.only(left:5),
+                  alignment: Alignment.topLeft,
+                child:Text('Version 1.0',textAlign: TextAlign.left,style: TextStyle(color: Colors.grey,),),
+                ), 
+              ],
+            ),
         ),
       ),
-      
     );
   }
 }
+
+
+
+
 
 
 class LogIn extends StatelessWidget {
@@ -242,6 +318,7 @@ class LogIn extends StatelessWidget {
     return(
       MaterialApp(
         home: Scaffold(
+          resizeToAvoidBottomPadding:false,
       backgroundColor: const Color(0xfff2f5f8),
       body: Stack(
         children: <Widget>[
