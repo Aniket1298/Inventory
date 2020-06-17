@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:hello/sidebar.dart';
+//Color(0xff50ca5d) Green
 class FullPayments extends StatelessWidget {
   FullPayments({
     Key key,
@@ -8,6 +9,7 @@ class FullPayments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Sidebar(),
       backgroundColor: const Color(0xfff2f5f8),
       body: Stack(
         children: <Widget>[
@@ -58,26 +60,7 @@ class FullPayments extends StatelessWidget {
                   ],
                 ),
               ),
-              Transform.translate(
-                offset: Offset(43.0, 27.5),
-                child:
-                    // Adobe XD layer: 'MY PAYMENT HISTORY' (text)
-                    SizedBox(
-                  width: 242.0,
-                  child: Text(
-                    'MY PAYMENT HISTORY',
-                    style: TextStyle(
-                      fontFamily: 'Kohinoor Devanagari',
-                      fontSize: 18,
-                      color: const Color(0xe6ffffff),
-                      letterSpacing: 0.25000000762939456,
-                      fontWeight: FontWeight.w700,
-                      height: 0.8333333333333334,
-                    ),
-                    textAlign: TextAlign.right,
-                  ),
-                ),
-              ),
+              
             ],
           ),
           Transform.translate(
@@ -891,6 +874,7 @@ class FullPayments extends StatelessWidget {
                     ),
                   ),
                 ),
+                //Date
                 Transform.translate(
                   offset: Offset(273.0, 29.0),
                   child:
