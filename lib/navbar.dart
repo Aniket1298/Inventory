@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hello/test/FullPayments.dart';
+import 'homepage.dart'; 
+import 'mycustomer.dart';
+import 'fullpayments.dart';
 class bottomnav extends StatefulWidget {
   @override
   _bottomnavState createState() => _bottomnavState();
@@ -44,19 +48,172 @@ class _bottomnavState extends State<bottomnav> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          testbutton('assets/icons/home_bottom.png','Home'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/home_bottom.png'),
+                      ),
+                      Text('Home',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           VerticalDivider(color: Colors.white,),
-          testbutton('assets/icons/stocks_bot.png','Stocks'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/stocks_bot.png'),
+                      ),
+                      Text('Stocks',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          
           VerticalDivider(color: Colors.white,),
-          testbutton('assets/icons/sale_bottom.png','Sales'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/sale_bottom.png'),
+                      ),
+                      Text('Sales',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          
           VerticalDivider(color: Colors.white,),
-          testbutton('assets/icons/report_bottom.png','Report'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/report_bottom.png'),
+                      ),
+                      Text('Report',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          
           VerticalDivider(color: Colors.white,),
-          testbutton('assets/icons/customers_bottom.png','Customers'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => mycustomer()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/customers_bottom.png'),
+                      ),
+                      Text('Customers',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          
           VerticalDivider(color: Colors.white,),
-          testbutton('assets/icons/payments.png','Payment'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => FullPayment()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/payments.png'),
+                      ),
+                      Text('Paymets',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          
           VerticalDivider(color: Colors.white,),
-          testbutton('assets/icons/account.png','Account'),
+          Container(
+              width: 25,
+              height: 40,
+              child: GestureDetector(
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            
+                          },
+                child: Container(
+                  width: 40,
+                  color: Color(0xff5f6dcb),
+                  child: Column(
+                    children: <Widget>[
+                      Center(
+                        child: Image.asset('assets/icons/account.png'),
+                      ),
+                      Text('Account',style: TextStyle(fontSize: 5,color: Colors.white),),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          
         ],
       ),
     );

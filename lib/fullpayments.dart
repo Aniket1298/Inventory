@@ -7,6 +7,9 @@ import 'package:hello/screen.dart';
 import 'detail.dart';
 import 'bottom.dart';
 import 'background.dart';
+import 'bottom.dart';
+import 'navbar.dart';
+import 'common.dart';
 import 'package:flutter/cupertino.dart';
 int id =1;
 class FullPayment extends StatefulWidget {
@@ -20,6 +23,7 @@ class _FullPaymentState extends State<FullPayment> {
     final screen=MediaQuery.of(context).size;
     return MaterialApp(
       home: Scaffold(
+        bottomNavigationBar: bottomnav(),
         body:CustomPaint(
           painter: BluePainter(),
           child: ListView(
@@ -28,6 +32,7 @@ class _FullPaymentState extends State<FullPayment> {
             children: <Widget>[
               Top(),
               Total(),
+              
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 alignment: Alignment.center,
@@ -85,12 +90,15 @@ class _FullPaymentState extends State<FullPayment> {
 
                 ],),
               ),
-              transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
-              transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
-              transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
-              transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
-              transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
-            ],
+              //transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
+              ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
+                  itemCount: 5,
+                  controller: ScrollController(),
+                  itemBuilder: (context,index){
+                    return transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19');
+                  }
+              ),
+              ],
           ),
         ),
 

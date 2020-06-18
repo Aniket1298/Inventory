@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'package:http/http.dart' as http;
+//Iterable l = json.decode(response.body);
+//List<Post> posts = List<Post>.from(l).map((Map model)=> Post.fromJson(model)).toList();
 
 class Follow {
   final String username;
@@ -36,4 +39,29 @@ class Customer {
   }
 }
 
+class Transaction {
+  final String id;
+  final double amount;
+  final double paid;
+  final double due;
+  final DateTime date;
 
+  Transaction({this.id, this.amount,this.paid,this.due,this.date});
+
+  factory Transaction.fromJson(Map<String, dynamic> json) {
+    return Transaction(
+      id: json['id'],
+      amount: json['amount'],
+      paid: json['paid'],
+      due: json['due'],
+      date:json['date']
+    );
+  }
+}
+
+var url = 'https://localhost:8080';
+Future getTransaction() async{
+  var response = await http.get(url);
+  Iterable l = json.decode(response.body);
+  return l;
+}

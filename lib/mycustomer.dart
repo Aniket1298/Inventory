@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hello/background.dart';
 import 'package:hello/homepage.dart';
 import 'models.dart';
+import 'navbar.dart';
+import 'common.dart';
 class mycustomer extends StatefulWidget {
   @override
   _mycustomerState createState() => _mycustomerState();
@@ -18,14 +20,14 @@ class _mycustomerState extends State<mycustomer> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home:Scaffold(
+        bottomNavigationBar: bottomnav(),
         body:CustomPaint(
           painter: BluePainter(),
           child: Column(
             children: <Widget>[
               top_name,
               Adduser(_name,_age,_mobile,_address,_email),
-              //Newcustomers(newcustomers)
-              //Oldcustomers(oldcustomers)
+
             ],
           ),
         )
@@ -33,12 +35,11 @@ class _mycustomerState extends State<mycustomer> {
     );
   }
 }
-
 Widget Adduser(_name,_age,_mobile,_address,_email){
   return Container(
     
-    margin: EdgeInsets.all(10),
-    padding: EdgeInsets.all(0),
+    margin: EdgeInsets.all(15),
+    padding: EdgeInsets.all(15),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(5.0),
       color: Colors.white,

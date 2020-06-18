@@ -2,57 +2,107 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hello/models.dart';
+import 'package:hello/screen.dart';
 import 'detail.dart';
 import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
-import 'package:flutter/cupertino.dart';
 import 'sidebar.dart';
-
-class Homepage extends StatelessWidget {
+import 'navbar.dart';
+import 'common.dart';
+Color blue=Color(0xff5f6dcb);
+double pad=0.04;
+double mar=0.03;
+class Homepage extends StatefulWidget {
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '',
       home: Scaffold(
+        bottomNavigationBar: bottomnav(),
         drawer: Sidebar(),
         body: CustomPaint(
           painter: BluePainter(),
-          child: Container(
             child: ListView(
               children: <Widget>[
                 name,
-                Container(
-                  decoration: new BoxDecoration(
-                    color: Color(0xffffffff), //new Color.fromRGBO(255, 0, 0, 0.0),
-                    borderRadius: new BorderRadius.all(Radius.circular(10)),
-                  ),
-                  margin: EdgeInsets.fromLTRB(10, 60, 10, 5),
-                  padding: EdgeInsets.all(5),
-                  width: 300,
-                  child: Top,
-                ),
-                Container(
-                  decoration: new BoxDecoration(
-                    color: Color(0xffffffff), //new Color.fromRGBO(255, 0, 0, 0.0),
-                    borderRadius: new BorderRadius.all(Radius.circular(8)),
-                  ),
-                  margin: EdgeInsets.fromLTRB(10, 20, 10, 5),
-                  padding: EdgeInsets.all(0),
-                  width: 300,
-                  child: newcustomers,
-                ),
+                SizedBox(height: screenheight(context)*0.03,),
+                Top(),
+                SizedBox(height: screenheight(context)*0.03,),
+                Title(title: 'MY NEW CUSTOMERS',),
+                Newcustomers(),
+                SizedBox(height: screenheight(context)*0.03,),
+                Title(title:'IMPORTANT LINKS'),
+                Links(),              
               ],
-            ),
-
-          ),
+            ),      
         ),
       ),
+    
+      
+    );
+  }
+}
+
+class Title extends StatefulWidget {
+  const Title({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _TitleState createState() => _TitleState();
+}
+
+class _TitleState extends State<Title> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: screenheight(context)*0.04,
+      alignment: Alignment.center,
+      margin:EdgeInsets.fromLTRB(screenwidth(context)*mar,0,screenwidth(context)*mar,0),
+      color: Color(0xff5f6dcb),
+      child: Text(
+                widget.title,
+                textAlign: TextAlign.end,
+                style: TextStyle(
+                  fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w500,
+                  fontSize: screenheight(context)*0.02,
+                  color:Color(0xffffffff),
+                ),
+              ),
     );
   }
 }
 
 
+class Title2 extends StatelessWidget {
+  Title2({this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: screenheight(context)*0.04,
+      alignment: Alignment.center,
+      margin:EdgeInsets.fromLTRB(screenwidth(context)*mar,0,screenwidth(context)*mar,0),
+      color: Color(0xff5f6dcb),
+      child: Text(
+                'IMPORTANT LINKS',
+                textAlign: TextAlign.end,
+                style: TextStyle(
+                  fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  color:Color(0xffffffff),
+                ),
+              ),
+    );
+  }
+}
 
 
 
@@ -102,114 +152,67 @@ Widget name=Container(
 ),
 );
 
-Widget Top=Container(
-  width: 300.00,
-  decoration: BoxDecoration(
-    color: Color(0xffffffff),
-    boxShadow: [
-      BoxShadow(
-        offset: Offset(0.00,4.00),
-        color: Color(0xff000000).withOpacity(0.06),
-        blurRadius: 16,
-      ),
-    ], borderRadius: BorderRadius.circular(10.00),
-  ),
-  child: Column(
-    children: <Widget>[
-      Center(
-        child:
-          Column(
-            children: <Widget>[
-              Text(
-                "WELCOME TO INVENTORY GURU",
-                style: TextStyle(
-                  fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                  color:Color(0xff79828b),
-                ),
-              ),
-              SizedBox(height: 4,width: double.infinity,),
-              Text(
-                "MANAGING STOCKS MADE EASY",
-                style: TextStyle(
-                  fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w700,
-                  fontSize: 10,
-                  color:Color(0xff79828b),
-                ),
-              ),
-              SizedBox(height: 10,width: double.infinity,),
-              simplebutton('Fill My Stock',200,40),
-              SizedBox(height: 10,width: double.infinity,),
-              simplebutton('Start Selling',200,40),
-              SizedBox(height: 10,width: double.infinity,),
-              simplebutton('View Customers',200,40),
-              SizedBox(height: 10,width: double.infinity,),
 
-
-            ],
-          )
-      )
-    ],
-  ),
-);
-Widget circularicon(icon_name,url,label){
-  Container(
-    child: Column(
-      children: <Widget>[
-        Container(
-          width:40,
-          height: 40,
-          decoration:BoxDecoration(
-            color:Colors.blue,
-            shape: BoxShape.circle
-          ),
-          child: Tab(
-            icon: Container(
-              child: Image(
-                image: AssetImage(
-                  'url',
-                ),
-                fit: BoxFit.cover,
-              ),
-              height: 100,
-              width: 100,
-            ),
-          ),
-        ),
-
-
-      ],
-    ),
-  );
+class Top extends StatefulWidget {
+  @override
+  _TopState createState() => _TopState();
 }
 
-Widget links=Container(
-  width: 300.00,
-  decoration: BoxDecoration(
-    color: Color(0xffffffff),
-    boxShadow: [
-      BoxShadow(
-        offset: Offset(0.00,4.00),
-        color: Color(0xff000000).withOpacity(0.06),
-        blurRadius: 16,
+class _TopState extends State<Top> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(screenwidth(context)*pad,0,screenwidth(context)*pad,0),
+      margin: EdgeInsets.fromLTRB(screenwidth(context)*mar,0,screenwidth(context)*mar,0),
+      decoration: BoxDecoration(
+        color: Color(0xffffffff),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0.00,4.00),
+            color: Color(0xff000000).withOpacity(0.06),
+            blurRadius: 16,
+          ),
+        ], borderRadius: BorderRadius.circular(10.00),
       ),
-    ], borderRadius: BorderRadius.circular(10.00),
-  ),
-  child: Column(
-    children: <Widget>[
-      Container(
-        alignment: Alignment.center,
-        child: simplebutton('IMPORTANT lINKS',double.infinity,40)
+      child: Column(
+        children: <Widget>[
+          Center(
+            child:
+              Column(
+                children: <Widget>[
+                  Text(
+                    "WELCOME TO INVENTORY GURU",
+                    style: TextStyle(
+                      fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      color:Color(0xff79828b),
+                    ),
+                  ),
+                  SizedBox(height: 4,width: double.infinity,),
+                  Text(
+                    "MANAGING STOCKS MADE EASY",
+                    style: TextStyle(
+                      fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w700,
+                      fontSize: 10,
+                      color:Color(0xff79828b),
+                    ),
+                  ),
+                  SizedBox(height: 10,width: double.infinity,),
+                  simplebutton('Fill My Stock',200,40),
+                  SizedBox(height: 10,width: double.infinity,),
+                  simplebutton('Start Selling',200,40),
+                  SizedBox(height: 10,width: double.infinity,),
+                  simplebutton('View Customers',200,40),
+                  SizedBox(height: 10,width: double.infinity,),
+
+                ],
+              )
+          )
+        ],
       ),
-      Container(
-        child: Row(
-
-        ),
-      )
-    ],
-  ),
-);
-
+    );
+  }
+}
 
 final users=[
   {'name':'Mr.Ashish Kumar','added_on':DateTime.utc(2014, 6, 4),'url':'assets/icons/user1.png'},
@@ -218,152 +221,8 @@ final users=[
 ];
 final items = List<String>.generate(10, (i) => "Item $i");
 
-Widget newcustomers=Container(
-  width: 300.00,
-  decoration: BoxDecoration(
-    borderRadius: new BorderRadius.all(Radius.circular(10)),
-    color: Color(0xffffffff),
-    boxShadow: [
-      BoxShadow(
-        offset: Offset(0.00,0.00),
-        color: Color(0xff000000).withOpacity(0.06),
-        blurRadius: 16,
-      ),
-    ],
-  ),
-  child: Column(
-    children: <Widget>[
-      Container(
-        color: Color(0xff5f6dcb),
-        width: double.infinity,
-        height: 40,
-        child:Center(
-          child: Text(
-            'MY NEW CUSTOMERS',
-            textAlign: TextAlign.end,
-            style: TextStyle(
-              fontFamily: "Kohinoor Devanagari",fontWeight: FontWeight.w500,
-              fontSize: 16,
-              color:Color(0xffffffff),
-            ),
-          ),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.all(6),
-        padding: EdgeInsets.all(6),
-        child:
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'NEW CUSTOMERS',
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontFamily: "Exo",fontWeight: FontWeight.w700,
-                  fontSize: 13,
-                  color:Colors.grey,
-                ),
-              ),
-              Text(
-                'This Month',
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontFamily: "Exo",fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                  color:Colors.grey,
-                ),
-              ),
-            ],
-          ),
-      ),
-      SizedBox(height:4),
-      Container(
-        child: ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
-          itemCount: users.length,
-          itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.all(5),
-                padding: EdgeInsets.all(5),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
 
-                        Text(
-                          '${(index+1).toString()}.',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                            fontFamily: "Exo",fontWeight: FontWeight.w400,
-                            fontSize: 25,
-                            color:Colors.black,
-                          ),
-                        ),
-                        SizedBox(width: 4,),
-                        Container(
-                          width: 60.0,
-                          height: 60.0,
-                          margin: EdgeInsets.only(right:30),
-                          decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              fit: BoxFit.contain,
-                              image: AssetImage(users[index]['url']),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 4,),
-                        Expanded(
-                          child:
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                users[index]['name'],
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontFamily: "Arial Narrow",
-                                  fontSize: 16,
-                                  color:Color(0xff42505c),
-                                ),
-                              ),
-                              SizedBox(height:4),
-                              Text(
-                                'Added on ${users[index]['added_on']}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontFamily: "Exo",fontWeight: FontWeight.w700,
-                                  fontSize: 10,
-                                  color:Color(0xff7885dc),
-                                ),
-                              ),
-                              SizedBox(height:4),
-                              Text(
-                                'View Customer Details',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontFamily: "Arial Narrow",
-                                  fontSize: 10,
-                                  color:Color(0xff42505c),
-                                ),
-                              ),
-                            ],),
-                        )
 
-                      ],
-                    ),
-                    Divider(thickness: 1,color: Colors.grey,height: 8,),
-                  ],
-                )
-            );
-          },
-        ),
-      ),
-    ],
-
-  )
-);
 final products=[{'name':'Chocolate Shake Mix','url':'assets/icons/product1.png','units':17,'Rate':1575},
   {'name':'Nutritional Shake Mix','url':'assets/icons/product2.png','units':17,'Rate':2575},
   {'name':'Healthy Meal Shake Mix','url':'assets/icons/product4.png','units':17,'Rate':3375},
@@ -414,35 +273,7 @@ Column productdetail(String name,String url,int units,double rate){
           ),
         ],
       ),)
-      /* SafeArea(child: Row(
-        children: <Widget>[
-          Expanded(child: Column(
-            children: <Widget>[
-              Text(
-                name,
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 14,
-                  color:Color(0xff5b5a5a),
-                ),
-              ),
-              Expanded(child: Row(
-                children: <Widget>[
-                  Text(
-                    "${units} Units",
-                    style: TextStyle(
-                      fontFamily: "Arial Narrow",
-                      fontSize: 14,
-                      color:Color(0xff5b5a5a),
-                    ),
-                  ),
-                ],
-              ),)
-            ],
-          ),)
-        ],
-
-      ),)*/
+      
     ],
   );
 }
@@ -504,3 +335,125 @@ Widget latest_product=Container(
     ),
 
 );
+
+class Links extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(screenwidth(context)*0.03, 0, screenwidth(context)*0.03, 0),
+      padding: EdgeInsets.fromLTRB(screenwidth(context)*0.06,screenwidth(context)*0.06 , screenwidth(context)*0.06, 0),
+      decoration: BoxDecoration(
+        borderRadius: new BorderRadius.only(
+          bottomLeft: Radius.circular(5),
+          bottomRight: Radius.circular(5),
+        ),
+        color: Color(0xffffffff),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0.00,0.00),
+            color: Color(0xff000000).withOpacity(0.06),
+            blurRadius: 16,
+          ),
+        ],
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            child:Row(
+              children: <Widget>[
+                InkWell(
+                  child: Container(
+                    padding: EdgeInsets.all(3),
+                    width: screenwidth(context)*0.25,
+                    height: screenwidth(context)*0.25,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xff5f6dcb),
+                    ),
+                    child:Image(
+                        image: AssetImage(
+                          'assets/icons/sales.png',
+                        ),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                ),
+              ],
+            )
+          ),
+
+        ],
+      ),     
+    );
+  }
+}
+
+class Newcustomers extends StatefulWidget {
+  @override
+  _NewcustomersState createState() => _NewcustomersState();
+}
+
+class _NewcustomersState extends State<Newcustomers> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(screenwidth(context)*pad,4,screenwidth(context)*pad,4),
+      margin: EdgeInsets.fromLTRB(screenwidth(context)*mar,0,screenwidth(context)*mar,0),
+      decoration: BoxDecoration(
+        borderRadius: new BorderRadius.only(
+          bottomLeft: Radius.circular(5),
+          bottomRight: Radius.circular(5),
+        ),
+        color: Color(0xffffffff),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0.00,0.00),
+            color: Color(0xff000000).withOpacity(0.06),
+            blurRadius: 16,
+          ),
+        ],
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(6),
+            padding: EdgeInsets.all(6),
+            child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'NEW CUSTOMERS',
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      fontFamily: "Exo",fontWeight: FontWeight.w700,
+                      fontSize: 13,
+                      color:Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    'This Month',
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      fontFamily: "Exo",fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color:Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+          ),
+          SizedBox(height:4),
+          ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
+                  itemCount: 5,
+                  controller: ScrollController(),
+                  itemBuilder: (context,index){
+                    return CustomerCard(name:'Ashish',date:'2012-12-12',id:2,index:index+1,url:'assets/icons/user1.png');
+                  }
+              ),
+                 
+        ],
+      )
+    );
+  }
+}

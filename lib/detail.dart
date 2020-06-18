@@ -1,5 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:hello/background.dart';
+import 'navbar.dart';
+
+class Account extends StatefulWidget {
+  @override
+  _AccountState createState() => _AccountState();
+}
+
+class _AccountState extends State<Account> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        bottomNavigationBar: bottomnav(),
+        body: CustomPaint(
+          painter: BluePainter(),
+          child: ListView(
+            children: <Widget>[
+              userdetail,
+            ],
+          ),
+        ),
+
+      ),
+    );
+  }
+}
+
+
+
 Column simplebutton(String label){
   return Column(
     children: <Widget>[
@@ -40,6 +69,7 @@ Column _productdetail(String str,int count){
     ],
   );
 }
+
 
 Widget userdetail = Container(
   color: Colors.white,

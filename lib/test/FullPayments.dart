@@ -9,7 +9,7 @@ class FullPayments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Sidebar(),
+      drawer: Drawer(child: Sidebar(),),
       backgroundColor: const Color(0xfff2f5f8),
       body: Stack(
         children: <Widget>[
