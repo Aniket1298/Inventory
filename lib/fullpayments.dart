@@ -90,6 +90,7 @@ class _FullPaymentState extends State<FullPayment> {
 
                 ],),
               ),
+              ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
               //transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
               ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
                   itemCount: 5,

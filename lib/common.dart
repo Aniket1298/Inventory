@@ -136,7 +136,85 @@ class _ProductCardState extends State<ProductCard> {
               ),
             ),
           ),
-
+          Container(
+            child: Row(children: <Widget>[
+              Container(
+                child: 
+                Column(
+                  children: <Widget>[
+                    Container(
+                      child: 
+                      Column(
+                        children: <Widget>[
+                          //Name
+                          Text(widget.name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Avenir Next',
+                              fontSize: screenheight(context)*0.01,
+                              color: const Color(0xffd28e62),
+                              letterSpacing: 0.049999999523162836,
+                              ),
+                            ),
+                          Container(
+                            child: Row(
+                              children: <Widget>[
+                                //Units
+                                Text(
+                                  widget.units.toString()+ ' Units',
+                                  style: TextStyle(
+                                    fontFamily: 'Avenir Next',
+                                    fontSize: screenheight(context)*0.01,
+                                    color: const Color(0xffd28e62),
+                                    letterSpacing: 0.049999999523162836,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                Spacer(),
+                                //Rate
+                                Text(
+                                  'Rate - '+widget.rate.toString(),
+                                  style: TextStyle(
+                                    fontFamily: 'Avenir Next',
+                                    fontSize: 7,
+                                    color: const Color(0xff5b5552),
+                                    letterSpacing: 0.049999999523162836,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                
+                          ],
+                          ),
+                          //Sell Button
+                          
+                          ),
+                          InkWell(
+                            onTap: null,
+                            child: Container(
+                              width: screenwidth(context)*0.05,
+                              height:screenheight(context)*0.02,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                              child:Text('Sell',style: TextStyle(
+                                fontFamily: 'Helvetica Neue',
+                                fontSize: screenwidth(context)*0.04,
+                                color: const Color(0xffffffff),
+                                letterSpacing: 0.07142857074737549,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+              ),),
+            ],),
+          ),
         ],
       ),
     );

@@ -32,6 +32,7 @@ class _HomepageState extends State<Homepage> {
                 name,
                 SizedBox(height: screenheight(context)*0.03,),
                 Top(),
+                
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title: 'MY NEW CUSTOMERS',),
                 Newcustomers(),
@@ -381,7 +382,7 @@ class Links extends StatelessWidget {
               ],
             )
           ),
-
+          
         ],
       ),     
     );
