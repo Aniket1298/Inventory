@@ -1,11 +1,15 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'background.dart';
 import 'navbar.dart';
 import 'package:http/http.dart' as http;
 double total_width=0;
 double total_height=0;
+
+//final storage = FlutterSecureStorage();
+
 class signup extends StatefulWidget {
   @override
   _signupState createState() => _signupState();

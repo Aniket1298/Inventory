@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hello/models.dart';
 import 'package:hello/screen.dart';
-import 'detail.dart';
+import 'account.dart';
 import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
@@ -24,7 +24,7 @@ class _HomepageState extends State<Homepage> {
     return MaterialApp(
       home: Scaffold(
         bottomNavigationBar: bottomnav(),
-        drawer: Sidebar(),
+        drawer: Container(color:Colors.white,child: Text('DFDGF'),),
         body: CustomPaint(
           painter: BluePainter(),
             child: ListView(
@@ -35,7 +35,7 @@ class _HomepageState extends State<Homepage> {
                 
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title: 'MY NEW CUSTOMERS',),
-                Newcustomers(),
+                Newcustomers(type:'NEW CUSTOMERS',time:'This Month'),
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title:'IMPORTANT LINKS'),
                 Links(),              
@@ -140,8 +140,9 @@ Column simplebutton(String label,double width,double Height){
 
 
 
-Widget name=Container(
-  margin: EdgeInsets.only(top: 10),
+Widget name= 
+  Container(
+  margin: EdgeInsets.only(top: 9),
   child: SafeArea(child: Center(child:new Text(
     "INVENTORY GURU",
     style: TextStyle(
@@ -152,6 +153,8 @@ Widget name=Container(
   ),),
 ),
 );
+
+
 
 
 class Top extends StatefulWidget {
@@ -389,72 +392,3 @@ class Links extends StatelessWidget {
   }
 }
 
-class Newcustomers extends StatefulWidget {
-  @override
-  _NewcustomersState createState() => _NewcustomersState();
-}
-
-class _NewcustomersState extends State<Newcustomers> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.fromLTRB(screenwidth(context)*pad,4,screenwidth(context)*pad,4),
-      margin: EdgeInsets.fromLTRB(screenwidth(context)*mar,0,screenwidth(context)*mar,0),
-      decoration: BoxDecoration(
-        borderRadius: new BorderRadius.only(
-          bottomLeft: Radius.circular(5),
-          bottomRight: Radius.circular(5),
-        ),
-        color: Color(0xffffffff),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0.00,0.00),
-            color: Color(0xff000000).withOpacity(0.06),
-            blurRadius: 16,
-          ),
-        ],
-      ),
-      child: Column(
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(6),
-            padding: EdgeInsets.all(6),
-            child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'NEW CUSTOMERS',
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      fontFamily: "Exo",fontWeight: FontWeight.w700,
-                      fontSize: 13,
-                      color:Colors.grey,
-                    ),
-                  ),
-                  Text(
-                    'This Month',
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      fontFamily: "Exo",fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                      color:Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-          ),
-          SizedBox(height:4),
-          ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
-                  itemCount: 5,
-                  controller: ScrollController(),
-                  itemBuilder: (context,index){
-                    return CustomerCard(name:'Ashish',date:'2012-12-12',id:2,index:index+1,url:'assets/icons/user1.png');
-                  }
-              ),
-                 
-        ],
-      )
-    );
-  }
-}

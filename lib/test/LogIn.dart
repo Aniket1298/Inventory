@@ -1,28 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+//import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hello/background.dart';
 import 'package:hello/screen.dart';
-
-
-final cri=Container(
-            width: 100.0,
-            height: 100.0,
-            
-            decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.green,
-            ),
-            child: Container(
-                alignment: Alignment.center,
-                child: Text('Hello'),
-                margin: EdgeInsets.all(10),
-                decoration: new BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-              ),
-          );
+//final storage = FlutterSecureStorage();
 
 class Login extends StatefulWidget {
   @override
@@ -31,7 +13,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _password = TextEditingController();
-
+final _email= TextEditingController();
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
@@ -39,9 +21,9 @@ class _LoginState extends State<Login> {
     _password.dispose();
     super.dispose();
   }
-
+  
   @override
-  final _email= TextEditingController();
+  
 
   Widget build(BuildContext context) {
 

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hello/folloup.dart';
 import 'package:hello/screen.dart';
-import 'detail.dart';
+import 'account.dart';
 import 'bottom.dart';
 import 'background.dart';
 import 'bottom.dart';
@@ -90,7 +90,7 @@ class _FullPaymentState extends State<FullPayment> {
 
                 ],),
               ),
-              ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
+              //ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
               //transactioncard(screenwidth(context), screenheight(context), '3455434626732', '434534', '1223', '0', '19-19-19'),
               ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
                   itemCount: 5,
@@ -240,7 +240,6 @@ class _TotalState extends State<Total> {
                             Text('Full Paid Payments',
                             style:TextStyle(fontSize:screenwidth(context)*0.028)
                             ),
-
                           ],
                         ),
                     ),

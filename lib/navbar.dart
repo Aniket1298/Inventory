@@ -5,6 +5,7 @@ import 'package:hello/test/FullPayments.dart';
 import 'homepage.dart'; 
 import 'mycustomer.dart';
 import 'fullpayments.dart';
+import 'account.dart';
 class bottomnav extends StatefulWidget {
   @override
   _bottomnavState createState() => _bottomnavState();
@@ -165,7 +166,6 @@ class _bottomnavState extends State<bottomnav> {
                 ),
               ),
             ),
-          
           VerticalDivider(color: Colors.white,),
           Container(
               width: 25,
@@ -196,7 +196,7 @@ class _bottomnavState extends State<bottomnav> {
               height: 40,
               child: GestureDetector(
                 onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Account()));
                             
                           },
                 child: Container(

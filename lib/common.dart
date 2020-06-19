@@ -96,9 +96,6 @@ class _CustomerCardState extends State<CustomerCard> {
             ),
           ),
           Divider(thickness: 1,color: Colors.grey,height: 8,),
-
-          
-
         ],
       ),
 
@@ -108,6 +105,7 @@ class _CustomerCardState extends State<CustomerCard> {
       );
   }
 }
+//Image.asset(widget.imageurl,fit: BoxFit.fill),
 
 class ProductCard extends StatefulWidget {
   final String name;
@@ -127,6 +125,7 @@ class _ProductCardState extends State<ProductCard> {
       child: Column(
         children: <Widget>[
           Container(
+            child: Image.asset(widget.imageurl,fit: BoxFit.fill),
             width: screenwidth(context)*0.3,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
@@ -183,8 +182,7 @@ class _ProductCardState extends State<ProductCard> {
                                     fontWeight: FontWeight.w700,
                                   ),
                                   textAlign: TextAlign.left,
-                                ),
-                                
+                                ),         
                           ],
                           ),
                           //Sell Button
@@ -217,6 +215,114 @@ class _ProductCardState extends State<ProductCard> {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+class Newcustomers extends StatefulWidget {
+  final String type;
+  final String time;
+  const Newcustomers({Key key, this.type,this.time}) : super(key: key);
+  @override
+  _NewcustomersState createState() => _NewcustomersState();
+}
+
+class _NewcustomersState extends State<Newcustomers> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(screenwidth(context)*pad,4,screenwidth(context)*pad,4),
+      margin: EdgeInsets.fromLTRB(screenwidth(context)*mar,0,screenwidth(context)*mar,0),
+      decoration: BoxDecoration(
+        borderRadius: new BorderRadius.only(
+          bottomLeft: Radius.circular(5),
+          bottomRight: Radius.circular(5),
+        ),
+        color: Color(0xffffffff),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0.00,0.00),
+            color: Color(0xff000000).withOpacity(0.06),
+            blurRadius: 16,
+          ),
+        ],
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(6),
+            padding: EdgeInsets.all(6),
+            child:
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    widget.type,
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      fontFamily: "Exo",fontWeight: FontWeight.w700,
+                      fontSize: 13,
+                      color:Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    widget.time,
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                      fontFamily: "Exo",fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color:Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+          ),
+          SizedBox(height:4),
+          ListView.builder(shrinkWrap: true,scrollDirection: Axis.vertical,
+                  itemCount: 5,
+                  controller: ScrollController(),
+                  itemBuilder: (context,index){
+                    return CustomerCard(name:'Ashish',date:'2012-12-12',id:2,index:index+1,url:'assets/icons/user1.png');
+                  }
+              ),
+                 
+        ],
+      )
+    );
+  }
+}
+
+
+class Header extends StatefulWidget {
+  final String title;
+  const Header({Key key, this.title}) : super(key: key);
+  @override
+  _HeaderState createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(screenwidth(context)*0.05, screenheight(context)*0.05, 0, screenheight(context)*0.04),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Icon(Icons.menu,color: Colors.white,),
+          Text(widget.title,
+            style: TextStyle(
+              fontFamily: 'Kohinoor Devanagari',
+              fontSize: screenheight(context)*0.04,
+              color: const Color(0xe6ffffff),
+              letterSpacing: 0.25000000762939456,
+              fontWeight: FontWeight.w700,
+              height: 0.8333333333333334,
+              ),
+              textAlign: TextAlign.right,
+            ),
+        SizedBox(width:1),
+      ],),
     );
   }
 }

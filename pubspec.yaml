@@ -1,6 +1,7 @@
 name: hello
 description: A new Flutter project.
 
+
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -22,6 +23,7 @@ dependencies:
   http: ^0.12.0+4
   image_picker: "^0.4.5"
   flutter_screenutil: ^1.0.2
+  
 
 
   # The following adds the Cupertino Icons font to your application.

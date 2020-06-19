@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/test/FullPayments.dart';
 
-import 'detail.dart';
+
 import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
@@ -15,7 +15,8 @@ import 'mycustomer.dart';
 import 'test/SIDEBARMENU.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'fullpayments.dart';
-
+import 'homepage.dart';
+import 'account.dart';
 //default value : width : 1080px , height:1920px , allowFontScaling:false
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FullPayment(),
+      home: Homepage(),
     );
   }
 }

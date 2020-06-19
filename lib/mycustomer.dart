@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hello/background.dart';
 import 'package:hello/homepage.dart';
+import 'package:hello/screen.dart';
 import 'models.dart';
 import 'navbar.dart';
 import 'common.dart';
+double mar=0.03;
+double pad=0.05;
 class mycustomer extends StatefulWidget {
   @override
   _mycustomerState createState() => _mycustomerState();
@@ -23,10 +26,13 @@ class _mycustomerState extends State<mycustomer> {
         bottomNavigationBar: bottomnav(),
         body:CustomPaint(
           painter: BluePainter(),
-          child: Column(
+          child: ListView(
             children: <Widget>[
               top_name,
               Adduser(_name,_age,_mobile,_address,_email),
+              Newcustomers(type:'NEW CUSTOMERS',time:'This Month'),
+              SizedBox(height:screenheight(context)*0.06),
+              Newcustomers(time: "All Time",type:"OLD CUSTOMERS")
 
             ],
           ),
@@ -280,3 +286,6 @@ Widget top_name=Container(
     ],
   ),
 );
+
+
+
