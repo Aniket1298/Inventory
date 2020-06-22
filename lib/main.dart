@@ -11,13 +11,12 @@ import 'SPLASHSCREEN.dart';
 import 'customer_payment_history.dart';
 import 'fullpayments.dart';
 import 'mycustomer.dart';
-//import 'test/LogIn.dart';
+import 'background.dart';
 import 'test/SIDEBARMENU.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'fullpayments.dart';
 import 'homepage.dart';
 import 'account.dart';
-//default value : width : 1080px , height:1920px , allowFontScaling:false
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -260,45 +260,7 @@ class _DetailState extends State<Detail> {
                   ],
                 ),),
                 
-                SizedBox(height: screenheight(context)*0.01,),
-                Divider(
-                    color: Colors.grey.shade300,height: 3,thickness: 3,
-                ),
-                
-                SizedBox(width: double.infinity,height: screenheight(context)*0.05,),
-                ProductDetail(str:'Total Products Purchased', count:110),
-                Divider(
-                    color: Colors.grey,height: 8,
-                ),
-                ProductDetail(str:'Total Products Sold',count: 88),
 
-                Divider(
-                    color: Colors.grey,height:8
-                ),
-                ProductDetail(str:'Total Profit This Month',count:9755),
-
-                Divider(
-                    color: Colors.grey,height: 8,
-                ),
-                ProductDetail(str:'Total Loss This Month',count: 55),
-
-                Divider(
-                    color: Colors.grey,height: 8,
-                ),
-                ProductDetail(str:'Total Profit Last Month', count:7255),
-
-                Divider(
-                    color: Colors.grey,height: 8,
-                ),
-                ProductDetail(str:'Total Loss Last Month',count: 655),
-
-                Divider(
-                    color: Colors.grey,height: 8,
-                ),
-                ProductDetail(str:'Total Loss This Month',count: 655),
-                Divider(
-                    color: Colors.grey,height: 8,
-                ),
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -382,4 +344,3 @@ class _DetailState extends State<Detail> {
 
   }
 }
-

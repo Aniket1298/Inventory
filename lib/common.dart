@@ -1,11 +1,50 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/screen.dart';
-
+import 'background.dart';
 Color blue=Color(0xff5f6dcb);
 double pad=0.03;
 double mar=0.03;
 
+class util extends StatelessWidget {
+  final  String label;
+
+  const util({Key key, this.label}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return  Text(
+    label+' ',
+    style: TextStyle(
+      fontFamily: 'Arial Rounded MT Bold',
+      fontSize: screenheight(context)*0.012,
+      fontWeight: FontWeight.bold,
+      color: const Color(0xff79828b),
+      letterSpacing: 0.4949998970031738,
+      ),
+    textAlign: TextAlign.left,
+  );
+  }
+}
+
+class Test extends StatefulWidget {
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: CustomPaint(
+          painter: AuthPainter(),
+          child: Container(child:Text('Hello')),
+        ),
+      ),
+      
+    );
+  }
+}
 
 class CustomerCard extends StatefulWidget {
   final String name; 
@@ -107,6 +146,26 @@ class _CustomerCardState extends State<CustomerCard> {
 }
 //Image.asset(widget.imageurl,fit: BoxFit.fill),
 
+class util2 extends StatelessWidget {
+  final String label;
+
+  const util2({Key key, this.label}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Text(label,
+    style: TextStyle(
+            fontFamily: 'Avenir Next',
+            fontSize: screenheight(context)*0.013,
+            color: const Color(0xffd28e62),
+            letterSpacing: 0.07857142782211303,
+            fontWeight: FontWeight.w500,
+            ),
+          );
+  }
+}
+
+
+
 class ProductCard extends StatefulWidget {
   final String name;
   final int units;
@@ -121,105 +180,77 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenwidth(context)*0.3,     
+      
+      alignment: Alignment.topLeft,
+      color: Colors.white,
       child: Column(
+         mainAxisAlignment: MainAxisAlignment.start,
+         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          //Product Image
           Container(
-            child: Image.asset(widget.imageurl,fit: BoxFit.fill),
-            width: screenwidth(context)*0.3,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              image:DecorationImage(
+            width: screenwidth(context)*0.35,
+            height:screenwidth(context)*0.35,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.00),
+                    image: DecorationImage(
                     fit: BoxFit.contain,
                     image: AssetImage(widget.imageurl),
-              ),
-            ),
-          ),
-          Container(
-            child: Row(children: <Widget>[
-              Container(
-                child: 
-                Column(
-                  children: <Widget>[
-                    Container(
-                      child: 
-                      Column(
-                        children: <Widget>[
-                          //Name
-                          Text(widget.name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'Avenir Next',
-                              fontSize: screenheight(context)*0.01,
-                              color: const Color(0xffd28e62),
-                              letterSpacing: 0.049999999523162836,
-                              ),
-                            ),
-                          Container(
-                            child: Row(
-                              children: <Widget>[
-                                //Units
-                                Text(
-                                  widget.units.toString()+ ' Units',
-                                  style: TextStyle(
-                                    fontFamily: 'Avenir Next',
-                                    fontSize: screenheight(context)*0.01,
-                                    color: const Color(0xffd28e62),
-                                    letterSpacing: 0.049999999523162836,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),
-                                Spacer(),
-                                //Rate
-                                Text(
-                                  'Rate - '+widget.rate.toString(),
-                                  style: TextStyle(
-                                    fontFamily: 'Avenir Next',
-                                    fontSize: 7,
-                                    color: const Color(0xff5b5552),
-                                    letterSpacing: 0.049999999523162836,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                ),         
-                          ],
-                          ),
-                          //Sell Button
-                          
-                          ),
-                          InkWell(
-                            onTap: null,
-                            child: Container(
-                              width: screenwidth(context)*0.05,
-                              height:screenheight(context)*0.02,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(4.0),
-                              ),
-                              child:Text('Sell',style: TextStyle(
-                                fontFamily: 'Helvetica Neue',
-                                fontSize: screenwidth(context)*0.04,
-                                color: const Color(0xffffffff),
-                                letterSpacing: 0.07142857074737549,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
-                  ],
-              ),),
-            ],),
+                  ),
+          ),
+          //Units Rate
+          Container(
+            width: screenwidth(context)*0.35,
+            child: Row(
+              
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  child: Column(
+                    children: <Widget>[
+                      util2(label: 'Chocolate Shake Mix',),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            util2(label: widget.units.toString()+' Units',),
+                            SizedBox(width: screenwidth(context)*0.02,),
+                            util(label:'Rate - '+widget.rate.toString()),
+                          ],),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: null,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: screenwidth(context)*0.08,
+                    height: screenwidth(context)*0.03,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    child:Text(
+                      'Sell',
+                      
+                      style: TextStyle(
+                        fontSize: screenwidth(context)*0.02,
+                        color: Colors.white,
+                        
+                      ),             
+                    ) ,),
+                ),
+              ],
+            ),
           ),
         ],
       ),
-    );
-  }
+    ); }
+
 }
 
-
+    
 class Newcustomers extends StatefulWidget {
   final String type;
   final String time;
@@ -326,3 +357,148 @@ class _HeaderState extends State<Header> {
     );
   }
 }
+
+/*
+class Sell extends StatefulWidget {
+  @override
+  _SellState createState() => _SellState();
+}
+
+class _SellState extends State<Sell> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        bottomNavigationBar: bottomnav(),
+        body: CustomPaint(
+          painter: BluePainter(),
+          child: ListView(
+            children: <Widget>[
+              Header(title: 'MY ACCOUNT',),
+            ]
+          ),
+        ),
+      ),     
+    );
+  }
+}
+*/
+
+/* 
+Container(
+      width:150,    
+      color: Colors.white, 
+      child: Column(
+        children: <Widget>[
+          Container(
+            child: Image.asset(widget.imageurl,fit: BoxFit.fill),
+            width: screenwidth(context)*0.3,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              image:DecorationImage(
+                    fit: BoxFit.contain,
+                    image: AssetImage(widget.imageurl),
+              ),
+            ),
+          ),
+          Container(
+            child: Row(children: <Widget>[
+              Container(
+                child:Column(
+                  children:<Widget>[
+                    Text('Hello'),
+                    Text('HEFE'),
+                  ]
+                ),
+
+                ),
+              Container(child: FlatButton(onPressed: null,child: Text('Sell'),),),
+            ],),
+          ),
+          ],
+      ),
+    );
+ */
+
+
+/*
+Container(
+            child: Row(children: <Widget>[
+              Container(
+                child: 
+                Column(
+                  children: <Widget>[
+                    Container(
+                      child: 
+                      Column(
+                        children: <Widget>[
+                          //Name
+                          Text(widget.name,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Avenir Next',
+                              fontSize: screenheight(context)*0.01,
+                              color: const Color(0xffd28e62),
+                              letterSpacing: 0.049999999523162836,
+                              ),
+                            ),
+                          Container(
+                            child: Row(
+                              children: <Widget>[
+                                //Units
+                                Text(
+                                  widget.units.toString()+ ' Units',
+                                  style: TextStyle(
+                                    fontFamily: 'Avenir Next',
+                                    fontSize: screenheight(context)*0.01,
+                                    color: const Color(0xffd28e62),
+                                    letterSpacing: 0.049999999523162836,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                                Spacer(),
+                                //Rate
+                                Text(
+                                  'Rate - '+widget.rate.toString(),
+                                  style: TextStyle(
+                                    fontFamily: 'Avenir Next',
+                                    fontSize: 7,
+                                    color: const Color(0xff5b5552),
+                                    letterSpacing: 0.049999999523162836,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),         
+                          ],
+                          ),
+                          //Sell Button
+                          
+                          ),
+                          InkWell(
+                            onTap: null,
+                            child: Container(
+                              width: screenwidth(context)*0.05,
+                              height:screenheight(context)*0.02,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                              child:Text('Sell',style: TextStyle(
+                                fontFamily: 'Helvetica Neue',
+                                fontSize: screenwidth(context)*0.04,
+                                color: const Color(0xffffffff),
+                                letterSpacing: 0.07142857074737549,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+              ),),
+            ],),
+          ),
+        
+*/

@@ -277,6 +277,8 @@ Widget top_name=Container(
             fontWeight: FontWeight.w700,
             height: 0.8333333333333334,
             ),
+
+            
             textAlign: TextAlign.right,
             ),
           ),

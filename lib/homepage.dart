@@ -11,6 +11,8 @@ import 'homepage.dart';
 import 'sidebar.dart';
 import 'navbar.dart';
 import 'common.dart';
+import 'sell.dart';
+
 Color blue=Color(0xff5f6dcb);
 double pad=0.04;
 double mar=0.03;
@@ -35,7 +37,9 @@ class _HomepageState extends State<Homepage> {
                 
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title: 'MY NEW CUSTOMERS',),
+                
                 Newcustomers(type:'NEW CUSTOMERS',time:'This Month'),
+                ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title:'IMPORTANT LINKS'),
                 Links(),              
