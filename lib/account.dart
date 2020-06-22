@@ -28,6 +28,52 @@ class _AccountState extends State<Account> {
   }
 }
 
+class HomeUtilButtons extends StatefulWidget {
+  final String label;
+
+  const HomeUtilButtons({Key key, this.label}) : super(key: key);
+
+
+  @override
+  _HomeUtilButtonsState createState() => _HomeUtilButtonsState();
+}
+
+class _HomeUtilButtonsState extends State<HomeUtilButtons> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: null,
+        child:Container(
+          width: screenwidth(context)*0.45,
+          height:screenheight(context)*0.06,
+          child:Text(
+            widget.label,
+            style: TextStyle(
+              fontFamily: "Kohinoor Devanagari",
+                  fontSize: screenheight(context)*0.023,
+                  color:Colors.white,
+                ),
+              ),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            gradient: LinearGradient(
+              begin: Alignment(1.42, -3.09),
+              end: Alignment(-1.31, 3.77),
+              colors: [
+                const Color(0xff6a79dd),
+                const Color(0xff5866c3)
+                ],
+                stops: [0.0, 1.0],
+            ),
+          ),
+        ) ,    
+    );
+  }
+}
+
+
+
 class simplebutton extends StatefulWidget {
   final String label;
 
@@ -111,6 +157,11 @@ class _ProductDetailState extends State<ProductDetail> {
 
 
 
+
+
+
+
+
 class Detail extends StatefulWidget {
   @override
   _DetailState createState() => _DetailState();
@@ -128,7 +179,7 @@ class _DetailState extends State<Detail> {
             margin: EdgeInsets.fromLTRB(screenwidth(context)*0.04, 0, screenwidth(context)*0.05, 0),
             child:Column(
               children: <Widget>[
-                SafeArea( child: Row(
+                Container( child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
@@ -152,27 +203,6 @@ class _DetailState extends State<Detail> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           /*2*/
-                          InkWell(
-                            child: Container(
-                              width: double.infinity,
-                              alignment: Alignment.topRight,
-                              child:Text(
-                                "Edit Profile",
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                  fontFamily: "Kohinoor Devanagari",
-                                  fontSize: screenheight(context)*0.02,
-                                  color:Color(0xff79828b),
-                                ),
-                              ),
-                           ),
-                          ),
-                          
-
-                          SizedBox(
-
-                              height:2
-                          ),
                           Container(
                             child: Text(
                               'Satyam Anand',
@@ -183,7 +213,6 @@ class _DetailState extends State<Detail> {
                             ),
                           ),
                           SizedBox(
-                              width:double.infinity,
                               height:2
                           ),
                           Text(
@@ -204,8 +233,7 @@ class _DetailState extends State<Detail> {
                             ),
                           ),
                           SizedBox(height:screenheight(context)*0.025),
-
-                          SafeArea(
+                          Container(
                             child:Row(
                               children: <Widget>[
                                 InkWell(
@@ -258,10 +286,53 @@ class _DetailState extends State<Detail> {
                       ),
                     ),
                   ],
-                ),),
+                ),
+              ),
                 
+              SizedBox(height: screenheight(context)*0.01,),
+                Divider(
+                    color: Colors.grey.shade300,height: 3,thickness: 3,
+                ),
+                
+                SizedBox(width: double.infinity,height: screenheight(context)*0.05,),
+                ProductDetail(str:'Total Products Purchased', count:110),
+                Divider(
+                    color: Colors.grey,height: 8,
+                ),
+                ProductDetail(str:'Total Products Sold',count: 88),
 
-                Center(
+                Divider(
+                    color: Colors.grey,height:8
+                ),
+                ProductDetail(str:'Total Profit This Month',count:9755),
+
+                Divider(
+                    color: Colors.grey,height: 8,
+                ),
+                ProductDetail(str:'Total Loss This Month',count: 55),
+
+                Divider(
+                    color: Colors.grey,height: 8,
+                ),
+                ProductDetail(str:'Total Profit Last Month', count:7255),
+
+                Divider(
+                    color: Colors.grey,height: 8,
+                ),
+                ProductDetail(str:'Total Loss Last Month',count: 655),
+
+                Divider(
+                    color: Colors.grey,height: 8,
+                ),
+                ProductDetail(str:'Total Loss This Month',count: 655),
+                Divider(
+                    color: Colors.grey,height: 8,
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(screenwidth(context)*0.05, 0, screenwidth(context)*0.05, 0),
+                  child:Column(
+                    children: <Widget>[
+                      Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     
@@ -338,9 +409,10 @@ class _DetailState extends State<Detail> {
                 Divider(thickness: 5,color: Colors.grey[100],height: 3,),
                 SizedBox(height:30),
               ],
-            ),
-
-          );
-
+            )
+          ),        
+        ],
+      ),      
+    );
   }
 }

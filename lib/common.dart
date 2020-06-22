@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/screen.dart';
 import 'background.dart';
-Color blue=Color(0xff5f6dcb);
+Color blue=const Color(0xff5f6dcb);
 double pad=0.03;
 double mar=0.03;
 
@@ -73,7 +73,7 @@ class _CustomerCardState extends State<CustomerCard> {
                   textAlign: TextAlign.end,
                   style: TextStyle(
                     fontFamily: "Exo",fontWeight: FontWeight.w400,
-                    fontSize: screenwidth(context)*0.08,
+                    fontSize: screenwidth(context)*0.05,
                     color:Colors.black,
                     ),
                   ),
@@ -130,11 +130,19 @@ class _CustomerCardState extends State<CustomerCard> {
                       ],
                     ),
                   ),
-                  Divider(thickness: 1,color: Colors.grey,height: 8,),
+                Divider(thickness: 1,color: Colors.grey,height: 8,),
+                Spacer(),
+                InkWell(child:Container(
+                  width: screenwidth(context)*0.1,
+                  height:screenwidth(context)*0.05 ,
+                  child: Image.asset('assets/icons/right.png'),
+                ) ,),
+                
               ],
             ),
           ),
           Divider(thickness: 1,color: Colors.grey,height: 8,),
+        
         ],
       ),
 
@@ -163,6 +171,8 @@ class util2 extends StatelessWidget {
           );
   }
 }
+
+
 
 
 
@@ -244,6 +254,7 @@ class _ProductCardState extends State<ProductCard> {
               ],
             ),
           ),
+          Spacer(),
         ],
       ),
     ); }

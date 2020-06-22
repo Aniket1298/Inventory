@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'bottom.dart';
 import 'background.dart';
 import 'homepage.dart';
+import 'navbar.dart';
 
 final follows=[{'name':'Mr.Ashish  Kumar'.toUpperCase(),'units':17,'product':'Chocolate Shake Mix','days':3},
   {'name':'Mr.Rajeev Sharma'.toUpperCase(),'units':17,'product':'Protein Shake Mix','days':2},
@@ -15,6 +16,7 @@ class Followup extends StatelessWidget {
     return MaterialApp(
       title: '',
       home: Scaffold(
+        bottomNavigationBar: bottomnav(),
         body:CustomPaint(
           painter: BluePainter(),
           child:

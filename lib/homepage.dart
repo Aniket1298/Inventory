@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -34,24 +40,84 @@ class _HomepageState extends State<Homepage> {
                 name,
                 SizedBox(height: screenheight(context)*0.03,),
                 Top(),
-                
-                SizedBox(height: screenheight(context)*0.03,),
-                Title(title: 'MY NEW CUSTOMERS',),
-                
-                Newcustomers(type:'NEW CUSTOMERS',time:'This Month'),
-                ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
+
+                //ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title:'IMPORTANT LINKS'),
                 Links(),              
+                SizedBox(height: screenheight(context)*0.03,),
+                Title(title: "Latest Products",),
+                //Latest(),
+                
+                SizedBox(height: screenheight(context)*0.03,),
+                Title(title: 'MY NEW CUSTOMERS',),
+                Newcustomers(type:'NEW CUSTOMERS',time:'This Month'),
               ],
             ),      
         ),
-      ),
-    
-      
+      ),    
     );
   }
 }
+
+
+
+class Latest extends StatefulWidget {
+  @override
+  _LatestState createState() => _LatestState();
+}
+
+class _LatestState extends State<Latest> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(screenwidth(context)*0.03, 0, screenwidth(context)*0.03, 0),
+      padding: EdgeInsets.fromLTRB(screenwidth(context)*0.06,screenwidth(context)*0.06 , screenwidth(context)*0.06, 0),
+      decoration: BoxDecoration(
+        borderRadius: new BorderRadius.only(
+          bottomLeft: Radius.circular(5),
+          bottomRight: Radius.circular(5),
+        ),
+        color: Color(0xffffffff),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0.00,0.00),
+            color: Color(0xff000000).withOpacity(0.06),
+            blurRadius: 16,
+          ),
+        ],
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ProductCard(name:'choc',units:12,rate:32,imageurl:'assets/icons/product1.png'),
+                ProductCard(name:'choc',units:12,rate:32,imageurl:'assets/icons/product1.png'),
+
+              ],
+            ),
+          ),
+          SizedBox(height: screenheight(context)*0.02,),
+          
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                ProductCard(name:'choc',units:12,rate:32,imageurl:'assets/icons/product1.png'),
+                ProductCard(name:'choc',units:12,rate:32,imageurl:'assets/icons/product1.png'),
+
+              ],
+            ),
+          )
+
+        ],
+      ),
+    );
+  }
+}
+
 
 class Title extends StatefulWidget {
   const Title({Key key, this.title}) : super(key: key);
@@ -184,7 +250,8 @@ class _TopState extends State<Top> {
       ),
       child: Column(
         children: <Widget>[
-          Center(
+          Container(
+            padding: EdgeInsets.fromLTRB(0, screenheight(context)*0.02, 0, screenheight(context)*0.02),
             child:
               Column(
                 children: <Widget>[
@@ -205,12 +272,12 @@ class _TopState extends State<Top> {
                       color:Color(0xff79828b),
                     ),
                   ),
+                  SizedBox(height: screenheight(context)*0.04,width: double.infinity,),
+                  HomeUtilButtons(label:'Fill My Stock'),
                   SizedBox(height: 10,width: double.infinity,),
-                  simplebutton('Fill My Stock',200,40),
+                  HomeUtilButtons(label:'Start Selling'),
                   SizedBox(height: 10,width: double.infinity,),
-                  simplebutton('Start Selling',200,40),
-                  SizedBox(height: 10,width: double.infinity,),
-                  simplebutton('View Customers',200,40),
+                  HomeUtilButtons(label:'View Customers'),
                   SizedBox(height: 10,width: double.infinity,),
 
                 ],
@@ -367,6 +434,93 @@ class Links extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
+            padding: EdgeInsets.fromLTRB(screenwidth(context)*0.03, screenheight(context)*0.01, screenwidth(context)*0.03, screenheight(context)*0.01),
+            child: Row(
+              
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                LinkUtil(label:'View Sales',imageurl: 'assets/icons/sales.png',),
+                LinkUtil(label:'View Sales',imageurl: 'assets/icons/sales.png',),
+             ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.fromLTRB(screenwidth(context)*0.03, screenheight(context)*0.01, screenwidth(context)*0.03, screenheight(context)*0.01),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                LinkUtil(label:'View Sales',imageurl: 'assets/icons/viewpayments.png',),
+                LinkUtil(label:'View Sales',imageurl: 'assets/icons/duehistorywhite.png',),
+             ],
+            ),
+          ),
+        
+        ],
+      ),
+    );
+  }
+}
+
+class LinkUtil extends StatefulWidget {
+  final String label;
+  final String imageurl;
+  const LinkUtil({Key key, this.label,this.imageurl}) : super(key: key);
+  @override
+  _LinkUtilState createState() => _LinkUtilState();
+}
+
+class _LinkUtilState extends State<LinkUtil> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          InkWell(
+            child: Container(
+              alignment: Alignment.center,
+              
+              width: screenwidth(context)*0.3,
+              height:screenwidth(context)*0.3,
+              decoration: BoxDecoration(
+                color: blue,
+                shape: BoxShape.circle,
+                
+              ),
+              child: Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                
+                shape: BoxShape.circle,
+                
+                ),
+                child: Image.asset(widget.imageurl),
+                
+              ),
+
+              ),
+          ),  
+          Container(
+            padding: EdgeInsets.fromLTRB(0, screenheight(context)*0.01, 0, screenheight(context)*0.02),
+            child: Text(
+            widget.label,
+            style: TextStyle(
+              fontFamily: 'Kohinoor Devanagari',
+               fontSize: screenheight(context)*0.02,
+               color: const Color(0xff79828b),
+                letterSpacing: 0.6250000762939453,
+            ),
+          ),
+         )
+        ],
+      ),      
+    );
+  }
+}
+
+
+/*child: Column(
+        children: <Widget>[
+          Container(
             child:Row(
               children: <Widget>[
                 InkWell(
@@ -392,7 +546,4 @@ class Links extends StatelessWidget {
           
         ],
       ),     
-    );
-  }
-}
-
+     */
