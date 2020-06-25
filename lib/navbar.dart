@@ -7,6 +7,7 @@ import 'mycustomer.dart';
 import 'fullpayments.dart';
 import 'account.dart';
 import 'sell.dart';
+import 'stock.dart';
 class bottomnav extends StatefulWidget {
   @override
   _bottomnavState createState() => _bottomnavState();
@@ -77,7 +78,7 @@ class _bottomnavState extends State<bottomnav> {
               height: 40,
               child: GestureDetector(
                 onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Stock()));
                             
                           },
                 child: Container(
@@ -100,7 +101,9 @@ class _bottomnavState extends State<bottomnav> {
               width: 25,
               height: 40,
               child: GestureDetector(
-                
+                onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Sell()));
+                          },
                 child: Container(
                   width: 40,
                   color: Color(0xff5f6dcb),

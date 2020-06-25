@@ -10,7 +10,8 @@ import 'background.dart';
 import 'bottom.dart';
 import 'navbar.dart';
 import 'common.dart';
-import 'package:flutter/cupertino.dart';
+import 'sidebar.dart';
+import 'dues.dart';
 int id =1;
 class FullPayment extends StatefulWidget {
   @override
@@ -24,6 +25,7 @@ class _FullPaymentState extends State<FullPayment> {
     return MaterialApp(
       home: Scaffold(
         bottomNavigationBar: bottomnav(),
+        drawer: Sidebar(),
         body:CustomPaint(
           painter: BluePainter(),
           child: ListView(
@@ -37,9 +39,8 @@ class _FullPaymentState extends State<FullPayment> {
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 alignment: Alignment.center,
                 height:screenheight(context)*0.04,
-                color:Colors.blue,
-                child: 
-              Text('Transaction History',style: TextStyle(color: Colors.white,fontSize: 17),),),
+                color:blue,
+                child: Text('Transaction History',style: TextStyle(color: Colors.white,fontSize: 17),),),
               Container(
                 padding:EdgeInsets.fromLTRB(screenwidth(context)*0.03, 0, screenwidth(context)*0.03, 0),
                 child: Row(children: <Widget>[
@@ -179,7 +180,7 @@ class _TotalState extends State<Total> {
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.blueAccent,
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Followup()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => FullPayment()));
                   /*...*/
                 },
                 child: Text(
@@ -196,9 +197,10 @@ class _TotalState extends State<Total> {
                 splashColor: Colors.blueAccent,
                 onPressed: () {
                   /*...*/
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DuesPayment()));
                 },
                 child: Text(
-                  "With Paid Payments",
+                  "With Dues Payments",
                   style: TextStyle(fontSize: 12.0),
                 ),
               ),

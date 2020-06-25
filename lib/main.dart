@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hello/sidebar.dart';
+import 'package:hello/signup.dart';
 import 'package:hello/test/FullPayments.dart';
 
 
@@ -26,11 +28,15 @@ class MyApp extends StatelessWidget {
   @override 
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: <String, WidgetBuilder> {
+      '/a': (BuildContext context) => Followup(),
+      
+    },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Homepage(),
+      home: Signup(),
     );
   }
 }

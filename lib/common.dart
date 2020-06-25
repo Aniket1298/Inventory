@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/screen.dart';
 import 'background.dart';
+import 'navbar.dart';
 Color blue=const Color(0xff5f6dcb);
 double pad=0.03;
 double mar=0.03;
-
+//Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
 class util extends StatelessWidget {
   final  String label;
 
@@ -254,7 +255,7 @@ class _ProductCardState extends State<ProductCard> {
               ],
             ),
           ),
-          Spacer(),
+          
         ],
       ),
     ); }
@@ -351,6 +352,7 @@ class _HeaderState extends State<Header> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+          
           Icon(Icons.menu,color: Colors.white,),
           Text(widget.title,
             style: TextStyle(

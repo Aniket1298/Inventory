@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hello/folloup.dart';
+import 'package:hello/fullpayments.dart';
 import 'package:hello/screen.dart';
 import 'account.dart';
 import 'bottom.dart';
@@ -11,33 +12,32 @@ import 'bottom.dart';
 import 'navbar.dart';
 import 'common.dart';
 import 'package:flutter/cupertino.dart';
+import 'sidebar.dart';
 int id =1;
-class FullPayment extends StatefulWidget {
+class DuesPayment extends StatefulWidget {
   @override
-  _FullPaymentState createState() => _FullPaymentState();
+  _DuesPaymentState createState() => _DuesPaymentState();
 }
 
-class _FullPaymentState extends State<FullPayment> {
+class _DuesPaymentState extends State<DuesPayment> {
   @override
   Widget build(BuildContext context) {
-    final screen=MediaQuery.of(context).size;
+    
     return MaterialApp(
       home: Scaffold(
         bottomNavigationBar: bottomnav(),
+        drawer: Sidebar(),
         body:CustomPaint(
           painter: BluePainter(),
           child: ListView(
-            
-
             children: <Widget>[
               Top(),
               Total(),
-              
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 alignment: Alignment.center,
                 height:screenheight(context)*0.04,
-                color:Colors.red,
+                color:const Color(0xff5f6dcb),
                 child: 
               Text('Transaction History',style: TextStyle(color: Colors.white,fontSize: 17),),),
               Container(
@@ -179,7 +179,7 @@ class _TotalState extends State<Total> {
                 padding: EdgeInsets.all(8.0),
                 splashColor: Colors.blueAccent,
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Followup()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => FullPayment()));
                   /*...*/
                 },
                 child: Text(
@@ -212,7 +212,7 @@ class _TotalState extends State<Total> {
           height: screenheight(context)*0.2,
           decoration: new BoxDecoration(
               shape: BoxShape.circle,
-              color: Color(0xff50ca5d),
+              color: Colors.red,
             ),
             child: Container(
                 alignment: Alignment.center,

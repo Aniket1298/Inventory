@@ -1,44 +1,25 @@
-import 'dart:async';
+
+
+//import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:hello/screen.dart';
+import 'login.dart';
 import 'background.dart';
-import 'navbar.dart';
+//import 'navbar.dart';
 import 'package:http/http.dart' as http;
-double total_width=0;
-double total_height=0;
+import 'login.dart';
 
 //final storage = FlutterSecureStorage();
-
-class signup extends StatefulWidget {
+//Fig(label: 'Enter Your Name',url:'assets/icons/person_blue.png'),
+class Signup extends StatefulWidget {
   @override
-  _signupState createState() => _signupState();
+  _SignupState createState() => _SignupState();
 }
-class _signupState extends State<signup> {
-     final _name= TextEditingController();
-      final _age= TextEditingController();
-      final _post= TextEditingController();
-       final _score= TextEditingController();
-      final _email= TextEditingController();
-      final _mobile= TextEditingController();
-      final _password= TextEditingController();
-      final _confirmpassword= TextEditingController();
-      void dispose() {
-    // Clean up the controller when the widget is disposed.
-        _name.dispose();
-        _age.dispose();
-        _post.dispose();
-        _score.dispose();
-        _email.dispose();
-        _mobile.dispose();
-        _password.dispose();
-        _confirmpassword();
-        super.dispose();
-      }
+class _SignupState extends State<Signup> {
+     
   @override
-
-
-
   Widget build(BuildContext context) {
     return MaterialApp(
         home:Scaffold(
@@ -49,7 +30,8 @@ class _signupState extends State<signup> {
               scrollDirection: Axis.vertical,
               children: <Widget>[
                 SizedBox(height: 100),
-                register(500.0,_name,_age,_post,_score,_email,_mobile,_password,_confirmpassword),
+                Register(),
+                //register(500.0,_name,_age,_post,_score,_email,_mobile,_password,_confirmpassword),
               ],
             ),
           ),
@@ -58,315 +40,220 @@ class _signupState extends State<signup> {
 
   }
 }
-Widget  register(screen_width,_name,_age,_post,_score,_email,_mobile,_password,_confirmpassword) {
-  return(Container(
-    padding: EdgeInsets.only(left: 10),
-    margin: EdgeInsets.all(10),
-    width: screen_width,
+
+
+class Register extends StatefulWidget {
+  
+  @override
+  _RegisterState createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment:Alignment.topLeft,
+    padding: EdgeInsets.only(left: screenwidth(context)*0.06),
     color: Colors.white,
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/person_blue.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text(
-                "Enter Your Name ",
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 15,
-                  color:Color(0xff42505c),
-                ),
-              ),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _name,
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Your Name',url:'assets/icons/person_blue.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  controller: TextEditingController(),
                   decoration: InputDecoration(
-                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/age_blue.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text(
-                "Enter Your Age ",
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 15,
-                  color:Color(0xff42505c),
-                ),
-              ),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _age,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/score_blue.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text(
-                "Enter Your Score ",
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 15,
-                  color:Color(0xff42505c),
-                ),
-              ),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 20,
-                child: TextField(
-                  controller: _score,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/post_blue.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text('Enter Your Post',style: TextStyle(fontSize: 15),),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _post,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/rate.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text('Enter Email Address',style: TextStyle(fontSize: 15),),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _email,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/call_blue.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text(
-                "Enter Mobile Number ",
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 15,
-                  color:Color(0xff42505c),
-                ),
-              ),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _mobile,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/password_blue.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text(
-                "Enter Password ",
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 15,
-                  color:Color(0xff42505c),
-                ),
-              ),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _password,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 4,),
-        Container(
-          width: double.maxFinite,
-          child: Row(
-            children: <Widget>[
-              Container(
-                width: 20,
-                height: 20,
-                child: Image.asset('assets/icons/password_green.png',),
-              ),
-              SizedBox(height: 20, width: 5,),
-              Text(
-                "Confirm Password ",
-                style: TextStyle(
-                  fontFamily: "Arial Narrow",
-                  fontSize: 15,
-                  color:Color(0xff42505c),
-                ),
-              ),
-              Spacer(),
-              Container(
-                width: 150,
-                height: 25,
-                child: TextField(
-                  controller: _confirmpassword,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(color: Colors.white,height: 20,),
-        Container(
-          width: screen_width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                height: 28.00,
-                width: 234.00,
-                decoration: BoxDecoration(
-                  color: Color(0xffd8d8d8),
-                  border: Border.all(width: 1.00, color: Color(0xff979797),), borderRadius: BorderRadius.circular(2.00),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
                     border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
-                    hintText: 'Activation Code here',
                   ),
                 ),
               ),
-              SizedBox(width: 1,height: 1,),
-            ],
+          
+           SizedBox(width:screenwidth(context)*0.03),
+          ],
           ),
         ),
-        Divider(color: Colors.white,height: 10,),
         Container(
-          width: screen_width,
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Your Age',url:'assets/icons/age_blue.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Your Post',url:'assets/icons/post_blue.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Your Score',url:'assets/icons/score_blue.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Email Address',url:'assets/icons/rate.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Mobile Number',url:'assets/icons/call_blue.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Enter Password',url:'assets/icons/password_blue.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom:screenheight(context)*0.006),
+          child: Row(children: <Widget>[
+          Fig(label: 'Confirm Password',url:'assets/icons/password_green.png'),
+          Spacer(),
+          Container(
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.06,
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  ),
+                ),
+              ),
+          SizedBox(width:screenwidth(context)*0.03),
+          ],
+          ),
+        ),
+        SizedBox(height:screenheight(context)*0.04),
+        Container( 
+                width: screenwidth(context)*0.4,
+                height: screenwidth(context)*0.1,
+                color: Colors.grey[400],
+                child: TextFormField(
+                  textAlign: TextAlign.center,
+                  controller: TextEditingController(),
+                  decoration: InputDecoration(
+                    hintText: 'Activation Code Here',
+                    hintStyle: TextStyle(
+                      fontSize: 10,
+                    ),
+                    border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                  ),
+                ),
+              ),
+        Container(
           child: Row(
             children: <Widget>[
               ButtonTheme(
-                minWidth: 50,
-                height: 25.0,
+                minWidth: screenwidth(context)*0.1,
+                height: screenwidth(context)*0.07,
                 buttonColor: Color(0xff5f6dcb),
                 child: RaisedButton(
                   onPressed: () {},
                   child: Text('Sign Up',style: TextStyle(
                     fontFamily: "Kohinoor Devanagari",
-                    fontSize: 18,
+                    fontSize: screenheight(context)*0.027,
                     color:Colors.white,
                   ),),
                 ),
               ),
-              SizedBox(width: 4,),
+              SizedBox(width: screenwidth(context)*0.02,),
               Text('No Activation Code,Get it here',style: TextStyle(color: Colors.grey,fontSize: 8),),
             ],
           ),
         ),
-        Divider(color: Colors.white,height: 8,),
         Container(
-          width: screen_width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -375,30 +262,84 @@ Widget  register(screen_width,_name,_age,_post,_score,_email,_mobile,_password,_
             ],
           ),
         ),
+        SizedBox(
+          height:screenheight(context)*0.013,
+        ),
         Container(
-          width: screen_width,
+          
           child:Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              ButtonTheme(
-                minWidth: 60,
-                height: 25.0,
-                buttonColor: Colors.redAccent,
-                child: RaisedButton(
-                  onPressed: () {},
-                  child: Text('Login',style: TextStyle(
+              InkWell(
+                onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));  
+                  },
+                child:Container(
+                  alignment: Alignment.center,
+                  width: screenwidth(context)*0.25,
+                  height:screenwidth(context)*0.06,
+                  child:Text('Login',style: TextStyle(
                     fontFamily: "Kohinoor Devanagari",
-                    fontSize: 18,
+                    fontSize: screenheight(context)*0.022,
                     color:Colors.white,
                   ),),
+                  decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(2.0),
+                gradient: LinearGradient(
+                  begin: Alignment(1.11, -1.3),
+                  end: Alignment(-1.31, 3.77),
+                  colors: [const Color(0xffd4811f), const Color(0xffcaa878)],
+                  stops: [0.0, 1.0],
                 ),
+                  
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x80000000),
+                    offset: Offset(0, 2),
+                    blurRadius: 1,
+                  ),
+                ]
+                  ),
+                ),
+      
               ),
               SizedBox(height: 1,),
             ],
           ),
         ),
+       ],
+      ),
+    );
+  }
+}
 
+
+class Fig extends StatelessWidget {
+  final String label;
+  final String url;
+
+  const Fig({Key key, this.label, this.url}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child:Row(
+        children: <Widget>[
+          Container(
+            width: screenwidth(context)*0.055,
+            height: screenwidth(context)*0.055,
+            child: Image.asset(url),
+          ),
+          SizedBox(width:screenwidth(context)*0.01),
+          Text(label,
+               style: TextStyle(
+                  fontFamily: "Arial Narrow",
+                  fontSize: screenheight(context)*0.018,
+                  color:Color(0xff42505c),
+                ),
+              ),     
       ],
-    ),
-  ));
+      )
+      
+    );
+  }
 }

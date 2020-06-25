@@ -3,6 +3,7 @@ import 'package:hello/background.dart';
 import 'package:hello/screen.dart';
 import 'navbar.dart';
 import 'common.dart';
+import 'sidebar.dart';
 class Account extends StatefulWidget {
   @override
   _AccountState createState() => _AccountState();
@@ -14,6 +15,7 @@ class _AccountState extends State<Account> {
     return MaterialApp(
       home: Scaffold(
         bottomNavigationBar: bottomnav(),
+        drawer: Sidebar(),
         body: CustomPaint(
           painter: BluePainter(),
           child: ListView(
@@ -175,7 +177,6 @@ class _DetailState extends State<Detail> {
               borderRadius: new BorderRadius.all(Radius.circular(5)),
               color: Colors.white,
             ),
-            
             margin: EdgeInsets.fromLTRB(screenwidth(context)*0.04, 0, screenwidth(context)*0.05, 0),
             child:Column(
               children: <Widget>[
@@ -285,6 +286,7 @@ class _DetailState extends State<Detail> {
                         ],
                       ),
                     ),
+                  
                   ],
                 ),
               ),

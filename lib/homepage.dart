@@ -18,7 +18,6 @@ import 'sidebar.dart';
 import 'navbar.dart';
 import 'common.dart';
 import 'sell.dart';
-
 Color blue=Color(0xff5f6dcb);
 double pad=0.04;
 double mar=0.03;
@@ -32,7 +31,7 @@ class _HomepageState extends State<Homepage> {
     return MaterialApp(
       home: Scaffold(
         bottomNavigationBar: bottomnav(),
-        drawer: Container(color:Colors.white,child: Text('DFDGF'),),
+        drawer: Sidebar(),
         body: CustomPaint(
           painter: BluePainter(),
             child: ListView(
@@ -40,15 +39,14 @@ class _HomepageState extends State<Homepage> {
                 name,
                 SizedBox(height: screenheight(context)*0.03,),
                 Top(),
-
+                
                 //ProductCard(name:'Chocolate Shake Mix',units: 17,rate: 1546,imageurl: 'assets/icons/product1.png',),
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title:'IMPORTANT LINKS'),
                 Links(),              
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title: "Latest Products",),
-                //Latest(),
-                
+                Latest(),
                 SizedBox(height: screenheight(context)*0.03,),
                 Title(title: 'MY NEW CUSTOMERS',),
                 Newcustomers(type:'NEW CUSTOMERS',time:'This Month'),
@@ -72,7 +70,7 @@ class _LatestState extends State<Latest> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(screenwidth(context)*0.03, 0, screenwidth(context)*0.03, 0),
-      padding: EdgeInsets.fromLTRB(screenwidth(context)*0.06,screenwidth(context)*0.06 , screenwidth(context)*0.06, 0),
+      padding: EdgeInsets.fromLTRB(screenwidth(context)*0.06,screenwidth(context)*0.06 , screenwidth(context)*0.06, screenwidth(context)*0.03),
       decoration: BoxDecoration(
         borderRadius: new BorderRadius.only(
           bottomLeft: Radius.circular(5),
