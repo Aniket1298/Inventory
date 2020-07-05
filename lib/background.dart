@@ -46,16 +46,15 @@ class AuthPainter extends CustomPainter {
   Paint paint = Paint();
 
 
-  path.lineTo(0, size.height *0.75);
+  path.lineTo(0, size.width);
+  path.quadraticBezierTo(10, 0, 50, 0);
   path.quadraticBezierTo(size.width*1.2, size.height*0.12,size.width*1.2, size.height*0.4);
   path.quadraticBezierTo(size.width* 0.10, size.height*0.70,   size.width*0.17, size.height*0.90);
-  //path.quadraticBezierTo(size.width*0.20, size.height, size.width*0.25, size.height*0.90);
+  path.quadraticBezierTo(size.width*0.20, size.height, size.width*0.25, size.height*0.90);
   path.close();
 
   paint.color = Colors.blue;
   canvas.drawPath(path, paint);
-
-
   }
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {

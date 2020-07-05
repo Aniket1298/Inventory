@@ -123,6 +123,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.12"
+  image_form_field:
+    dependency: "direct main"
+    description:
+      name: image_form_field
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   image_picker:
     dependency: "direct main"
     description:

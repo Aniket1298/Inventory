@@ -52,10 +52,7 @@ class SPLASHSCREEN extends StatelessWidget {
                 Stack(
               children: <Widget>[
                 // Adobe XD layer: 'Rectangle' (shape)
-                SvgPicture.string(
-                  _svg_274n7q,
-                  allowDrawingOutsideViewBox: true,
-                ),
+                
               ],
             ),
           ),
@@ -66,49 +63,11 @@ class SPLASHSCREEN extends StatelessWidget {
                 Stack(
               children: <Widget>[
                 // Adobe XD layer: 'Rectangle' (shape)
-                SvgPicture.string(
-                  _svg_lvai85,
-                  allowDrawingOutsideViewBox: true,
-                ),
+                
               ],
             ),
           ),
-          Transform.translate(
-            offset: Offset(188.0, 854.0),
-            child:
-                // Adobe XD layer: 'Header Copy 2' (group)
-                Stack(
-              children: <Widget>[
-                Transform.translate(
-                  offset: Offset(0.0, -301.32),
-                  child:
-                      // Adobe XD layer: 'Rectangle' (shape)
-                      SvgPicture.string(
-                    _svg_l4f84o,
-                    allowDrawingOutsideViewBox: true,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Transform.translate(
-            offset: Offset(170.0, 847.0),
-            child:
-                // Adobe XD layer: 'Header Copy 3' (group)
-                Stack(
-              children: <Widget>[
-                Transform.translate(
-                  offset: Offset(0.0, -301.32),
-                  child:
-                      // Adobe XD layer: 'Rectangle' (shape)
-                      SvgPicture.string(
-                    _svg_syo5yg,
-                    allowDrawingOutsideViewBox: true,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          
           Transform.translate(
             offset: Offset(170.0, 847.0),
             child:
